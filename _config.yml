@@ -1,0 +1,4 @@
+title: Museum of Ordinary Life
+markdown: kramdown
+exclude:
+  - README.md
