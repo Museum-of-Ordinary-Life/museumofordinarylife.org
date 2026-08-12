@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f2eee6">
+  <meta name="theme-color" content="#eee4d3">
   <title>Library / Reading Room — Museum of Ordinary Life</title>
   <meta name="description" content="A quiet digital reading room for material that helps explain ordinary life.">
   <link rel="icon" href="../favicon.png">
@@ -23,25 +23,14 @@
     </header>
 
     <main class="reading-room" id="library-main">
-      <div class="room-architecture" aria-hidden="true">
-        <div class="window-wall"></div>
-        <div class="shelves"></div>
-        <div class="floor"></div>
-        <div class="table"></div>
-        <div class="lamp one"></div>
-        <div class="lamp two"></div>
-        <div class="chair one"></div>
-        <div class="chair two"></div>
+      <div class="room-art" aria-hidden="true">
+        <img data-room-art alt="" decoding="async" fetchpriority="high">
       </div>
-
-      <div class="window-label">
-        WINDOW 01<br>
-        Awaiting a view from the collection.
-      </div>
+      <div class="room-wash" aria-hidden="true"></div>
 
       <section class="library-card" aria-labelledby="library-title">
         <p class="library-kicker">The Library</p>
-        <h1 id="library-title">Come in.<br>Stay a while.</h1>
+        <h1 id="library-title">Come in. Stay a while.</h1>
         <p class="lede">A quiet digital reading room for material that helps explain ordinary life. It may be a website, but you can still sit down.</p>
         <div class="library-actions" aria-label="Library actions">
           <button type="button" data-library-action="shelves" aria-pressed="false">Browse the shelves</button>
@@ -50,6 +39,8 @@
           <button type="button" data-quiet-toggle aria-pressed="false">Quiet mode</button>
         </div>
       </section>
+
+      <p class="room-credit">Reading room study / 2026</p>
     </main>
   </div>
 
