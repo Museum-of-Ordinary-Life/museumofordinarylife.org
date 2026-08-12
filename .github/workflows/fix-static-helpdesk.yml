@@ -1,0 +1,109 @@
+name: Fix flattened Help Desk
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-static-helpdesk.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Point Help Desk at flattened data file
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('js/helpdesk.js')
+          s = p.read_text()
+
+          old_header = """  const DATA_URL = './data/helpdesk-core.json';
+  const ENTRY_URLS = [
+    './data/helpdesk-entries-01.json',
+    './data/helpdesk-entries-02.json',
+    './data/helpdesk-entries-03.json',
+    './data/helpdesk-entries-04.json',
+    './data/helpdesk-entries-05.json',
+  ];
+"""
+          new_header = "  const DATA_URL = './data/helpdesk.json';\n"
+          if old_header not in s:
+              raise SystemExit('Expected old Help Desk header not found')
+          s = s.replace(old_header, new_header, 1)
+
+          old_loader = """    helpDataPromise = Promise.all([
+      fetch(DATA_URL, { cache: 'no-store' }).then(response => {
+        if (!response.ok) throw new Error(`Help Desk data: ${response.status}`);
+        return response.json();
+      }),
+      ...ENTRY_URLS.map(url => fetch(url, { cache: 'no-store' }).then(response => {
+        if (!response.ok) throw new Error(`Help Desk entries: ${response.status}`);
+        return response.json();
+      }))
+    ])
+      .then(([data, ...entryGroups]) => {
+        data.entries = entryGroups.flat();
+        helpData = data;
+        return data;
+      })
+"""
+          new_loader = """    helpDataPromise = fetch(DATA_URL, { cache: 'no-store' })
+      .then(response => {
+        if (!response.ok) throw new Error(`Help Desk data: ${response.status}`);
+        return response.json();
+      })
+      .then(data => {
+        helpData = data;
+        return data;
+      })
+"""
+          if old_loader not in s:
+              raise SystemExit('Expected old Help Desk loader not found')
+          s = s.replace(old_loader, new_loader, 1)
+          p.write_text(s)
+          PY
+
+          node --check js/helpdesk.js
+          python - <<'PY'
+          import json
+          d=json.load(open('data/helpdesk.json'))
+          assert isinstance(d.get('entries'), list) and len(d['entries']) > 50
+          print('Help Desk entries:', len(d['entries']))
+          PY
+
+          ! grep -q 'helpdesk-core.json' js/helpdesk.js
+          ! grep -q 'helpdesk-entries-' js/helpdesk.js
+          grep -q "./data/helpdesk.json" js/helpdesk.js
+
+          python -m http.server 8765 >/tmp/mool-http.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true' EXIT
+          sleep 1
+          curl --fail http://127.0.0.1:8765/ >/dev/null
+          curl --fail http://127.0.0.1:8765/cafe/ >/dev/null
+          curl --fail http://127.0.0.1:8765/data/helpdesk.json >/dev/null
+          curl --fail http://127.0.0.1:8765/js/helpdesk.js >/dev/null
+          curl --fail http://127.0.0.1:8765/favicon.png >/dev/null
+          curl --fail http://127.0.0.1:8765/apple-touch-icon.png >/dev/null
+          kill "$pid"
+          trap - EXIT
+
+          rm -f .github/workflows/fix-static-helpdesk.yml
+
+      - name: Commit fix
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Fix Help Desk after static flattening'
+          git push
