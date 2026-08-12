@@ -1,0 +1,424 @@
+    <section class="meta-section">
+      <h3>The rule</h3>
+      <div class="meta-copy">
+        <p>
+          Blur ontology, not consent.
+        </p>
+        <p>
+          The project may blur whether an artifact belongs to the present or the future, whether something began as art or institution, and where fiction ends. Safety, privacy, money, identity, emergencies, and official authority remain unambiguous.
+        </p>
+      </div>
+    </section>
+
+    <section class="meta-section">
+      <h3>Why hide this here?</h3>
+      <!-- Not steganography, exactly. More like leaving a note behind the frame. -->
+      <div class="meta-copy">
+        <p>
+          Because the Museum has to work without the fiction.
+        </p>
+        <p>
+          A visitor can contribute without knowing the novel exists. The deeper context is here for people who go looking for it.
+        </p>
+      </div>
+    </section>
+
+    <div class="meta-definition">
+      <div class="kicker">Working method / prefigurative fiction</div>
+      <p>
+        Build small pieces of a possible future now. See what happens. Let the result change the fiction.
+      </p>
+    </div>
+  </div>
+</aside>
+
+<!-- Basement level. Archives always seem to have a basement. -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-wordmark">
+        Museum <span class="wordmark-of">of</span><br>Ordinary Life
+      </div>
+
+      <div class="footer-col">
+        <div class="kicker">Archive</div>
+        Established 2026<br>
+        Collection open<br>
+        <a href="#collection">What we collect</a><br>
+        <a href="#stewardship" data-stewardship-open>Stewardship</a><br>
+        <a href="#contribute">Contribute</a><br>
+        <a href="./cafe/">Collection Lounge / Café</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="kicker">Contact</div>
+        <a href="#" data-email-link data-email-user="etubirtnoc" data-email-host="gro.efilyranidrofomuesum" data-email-display="address"><span data-email-address>Email contributions</span></a><br>
+        museumofordinarylife.org<br>
+        <a class="meta-link footer-meta-link" href="#help" data-helpdesk-open>Museum Help Desk ↗</a>
+        <br>
+        <a class="meta-link footer-meta-link" href="#context" data-meta-open>Project context ↘</a>
+        <br>
+        <a class="meta-link footer-meta-link" href="https://future.museumofordinarylife.org" data-meta-open>A possible future ↗</a>
+      </div>
+    </div>
+
+    <div class="endnote">
+      <span>Document what you would normally never think to document.</span>
+      <span>Nothing was ordinary while someone was living it.</span>
+    </div>
+  </div>
+</footer>
+
+<!--
+  The Help Desk is public.
+  After-hours is not.
+  Some doors don't look like doors.
+  Try noticing.
+-->
+<div id="archive-room" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="archive-room-title">
+  <div class="archive-room-shell">
+    <div class="archive-room-head">
+      <div class="archive-room-head-meta">
+        <span>Museum of Ordinary Life</span>
+        <span id="archive-room-mode-label">Reference desk / after hours</span>
+        <span class="archive-room-found" id="archive-room-status">Uncatalogued room</span>
+      </div>
+      <button class="archive-room-close" type="button" aria-label="Close Museum desk">×</button>
+    </div>
+
+    <div class="archive-room-intro">
+      <div class="archive-room-stamp" id="archive-room-stamp" aria-hidden="true">FOUND</div>
+      <h2 id="archive-room-title">You<br><em>noticed.</em></h2>
+      <div class="archive-room-intro-copy">
+        <p id="archive-room-intro-primary">This room isn’t listed on the public floor plan.</p>
+        <p id="archive-room-intro-secondary">Ask about the Museum, the collection, or what you might document next.</p>
+      </div>
+    </div>
+
+    <div class="archive-room-log" id="archive-room-log" role="log" aria-live="polite" aria-relevant="additions"></div>
+
+    <div class="archive-room-prompts" aria-label="Suggested questions">
+      <button type="button" data-archive-prompt="What should I document?">What should I document?</button>
+      <button type="button" data-archive-prompt="Why ordinary life?">Why ordinary life?</button>
+      <button type="button" data-archive-prompt="Are you AI?">Are you AI?</button>
+      <button type="button" data-archive-prompt="What's hidden here?">What's hidden here?</button>
+    </div>
+
+    <form class="archive-room-form" id="archive-room-form">
+      <label class="sr-only" for="archive-room-input">Ask the Museum</label>
+      <textarea class="archive-room-input" id="archive-room-input" rows="1" autocomplete="off" spellcheck="true" placeholder="Ask the Museum something…"></textarea>
+      <button type="submit">Ask →</button>
+    </form>
+
+    <div class="archive-room-foot">
+      <span><strong>Local interface.</strong> Nothing typed here leaves this page.</span>
+      <span id="archive-room-exit-note">Esc or “exit” returns to the galleries.</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- I swear this site wasn't vibe-coded lol. It was aggressively supervised. -->
+
+<script>
+(() => {
+  const panel = document.querySelector('.about-panel');
+  const backdrop = document.querySelector('.about-backdrop');
+  const openers = document.querySelectorAll('[data-about-open]');
+  const closers = document.querySelectorAll('[data-about-close]');
+
+  const stewardshipPanel = document.querySelector('.stewardship-panel');
+  const stewardshipBackdrop = document.querySelector('.stewardship-backdrop');
+  const stewardshipOpeners = document.querySelectorAll('[data-stewardship-open]');
+  const stewardshipClosers = document.querySelectorAll('[data-stewardship-close]');
+
+  const metaPanel = document.querySelector('.meta-panel');
+  const metaBackdrop = document.querySelector('.meta-backdrop');
+  const metaOpeners = document.querySelectorAll('[data-meta-open]');
+  const metaClosers = document.querySelectorAll('[data-meta-close]');
+
+  /* Email addresses are reconstructed in the browser so the complete
+     address never appears in the static HTML source. This reduces
+     harvesting by simple scrapers; it’s not a guarantee against bots
+     that execute JavaScript or otherwise infer the address. */
+  const reverseText = value => [...(value || '')].reverse().join('');
+
+  document.querySelectorAll('[data-email-link]').forEach(link => {
+    const user = reverseText(link.dataset.emailUser);
+    const host = reverseText(link.dataset.emailHost);
+    const address = `${user}@${host}`;
+    const subject = link.dataset.emailSubject;
+
+    link.href = `mailto:${address}${subject ? `?subject=${encodeURIComponent(subject)}` : ''}`;
+
+    if (link.dataset.emailDisplay === 'address') {
+      const target = link.querySelector('[data-email-address]');
+      if (target) target.textContent = address;
+    }
+  });
+
+  const navMenu = document.querySelector('.nav-more');
+  const languageMenu = document.querySelector('.language-menu');
+  const themeButtons = [...document.querySelectorAll('[data-theme-choice]')];
+  const themeColorMeta = document.querySelector('#theme-color');
+  const systemDark = window.matchMedia?.('(prefers-color-scheme: dark)');
+  const pageShell = [document.querySelector('.utility'), document.querySelector('header'), document.querySelector('main'), document.querySelector('footer')].filter(Boolean);
+  const navMenuSummary = navMenu?.querySelector('summary');
+
+  let lastFocus = null;
+  let stewardshipLastFocus = null;
+  let metaLastFocus = null;
+
+  function savedThemeChoice() {
+    try {
+      const saved = localStorage.getItem('mol-theme');
+      return ['auto','light','dark'].includes(saved) ? saved : 'auto';
+    } catch (_) {
+      return 'auto';
+    }
+  }
+
+  function resolvedTheme(choice) {
+    if (choice === 'light' || choice === 'dark') return choice;
+    return systemDark?.matches ? 'dark' : 'light';
+  }
+
+  function applyTheme(choice, { persist = true } = {}) {
+    const safeChoice = ['auto','light','dark'].includes(choice) ? choice : 'auto';
+
+    if (safeChoice === 'auto') {
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      document.documentElement.dataset.theme = safeChoice;
+    }
+
+    themeButtons.forEach(button => {
+      button.setAttribute('aria-pressed', String(button.dataset.themeChoice === safeChoice));
+    });
+
+    const resolved = resolvedTheme(safeChoice);
+    themeColorMeta?.setAttribute('content', resolved === 'dark' ? '#171713' : '#f4f1e8');
+
+    if (persist) {
+      try { localStorage.setItem('mol-theme', safeChoice); } catch (_) {}
+    }
+  }
+
+  themeButtons.forEach(button => {
+    button.addEventListener('click', () => applyTheme(button.dataset.themeChoice));
+  });
+
+  systemDark?.addEventListener?.('change', () => {
+    if (savedThemeChoice() === 'auto') applyTheme('auto', { persist: false });
+  });
+
+  applyTheme(savedThemeChoice(), { persist: false });
+
+  function setBodyLock() {
+    const anyOpen =
+      panel.classList.contains('is-open') ||
+      stewardshipPanel.classList.contains('is-open') ||
+      metaPanel.classList.contains('is-open');
+
+    document.body.classList.toggle('about-open', anyOpen);
+    pageShell.forEach(el => { el.inert = anyOpen; });
+  }
+
+  function setDialogState(dialog, isOpen) {
+    dialog.inert = !isOpen;
+    dialog.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+  }
+
+  function focusableWithin(dialog) {
+    return [...dialog.querySelectorAll('a[href], button:not([disabled]), summary, input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+      .filter(el => !el.closest('[inert]') && el.getClientRects().length > 0);
+  }
+
+  function trapTabKey(event, dialog) {
+    if (event.key !== 'Tab' || !dialog?.classList.contains('is-open')) return;
+    const items = focusableWithin(dialog);
+    if (!items.length) {
+      event.preventDefault();
+      dialog.focus();
+      return;
+    }
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  function openAbout({ focus = true } = {}) {
+    if (!panel.classList.contains('is-open')) {
+      lastFocus = document.activeElement;
+      panel.classList.add('is-open');
+      backdrop.classList.add('is-open');
+      setDialogState(panel, true);
+      backdrop.setAttribute('aria-hidden', 'false');
+    }
+
+    setBodyLock();
+
+    if (focus) {
+      setTimeout(() => panel.querySelector('.about-close')?.focus(), 50);
+    }
+  }
+
+  function closeAbout({ restoreFocus = true } = {}) {
+    panel.classList.remove('is-open');
+    backdrop.classList.remove('is-open');
+    setDialogState(panel, false);
+    backdrop.setAttribute('aria-hidden', 'true');
+    setBodyLock();
+
+    if (restoreFocus && lastFocus && document.contains(lastFocus)) {
+      lastFocus.focus();
+    }
+  }
+
+  function openStewardship({ focus = true } = {}) {
+    if (!stewardshipPanel.classList.contains('is-open')) {
+      stewardshipLastFocus = document.activeElement;
+      stewardshipPanel.classList.add('is-open');
+      stewardshipBackdrop.classList.add('is-open');
+      setDialogState(stewardshipPanel, true);
+      stewardshipBackdrop.setAttribute('aria-hidden', 'false');
+    }
+
+    setBodyLock();
+
+    if (focus) {
+      setTimeout(() => stewardshipPanel.querySelector('.stewardship-close')?.focus(), 50);
+    }
+  }
+
+  function closeStewardship({ restoreFocus = true } = {}) {
+    stewardshipPanel.classList.remove('is-open');
+    stewardshipBackdrop.classList.remove('is-open');
+    setDialogState(stewardshipPanel, false);
+    stewardshipBackdrop.setAttribute('aria-hidden', 'true');
+    setBodyLock();
+
+    if (restoreFocus && stewardshipLastFocus && document.contains(stewardshipLastFocus)) {
+      stewardshipLastFocus.focus();
+    }
+  }
+
+  function openMeta({ focus = true } = {}) {
+    if (!metaPanel.classList.contains('is-open')) {
+      metaLastFocus = document.activeElement;
+      metaPanel.classList.add('is-open');
+      metaBackdrop.classList.add('is-open');
+      setDialogState(metaPanel, true);
+      metaBackdrop.setAttribute('aria-hidden', 'false');
+    }
+
+    setBodyLock();
+
+    if (focus) {
+      setTimeout(() => metaPanel.querySelector('.meta-close')?.focus(), 50);
+    }
+  }
+
+  function closeMeta({ restoreFocus = true } = {}) {
+    metaPanel.classList.remove('is-open');
+    metaBackdrop.classList.remove('is-open');
+    setDialogState(metaPanel, false);
+    metaBackdrop.setAttribute('aria-hidden', 'true');
+    setBodyLock();
+
+    if (restoreFocus && metaLastFocus && document.contains(metaLastFocus)) {
+      metaLastFocus.focus();
+    }
+  }
+
+  function clearHash() {
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+
+  function syncPanelsToHash({ initial = false } = {}) {
+    const hash = location.hash.toLowerCase();
+
+    if (hash === '#about') {
+      closeMeta({ restoreFocus: false });
+      closeStewardship({ restoreFocus: false });
+      openAbout({ focus: !initial });
+      return;
+    }
+
+    if (hash === '#stewardship') {
+      closeMeta({ restoreFocus: false });
+      closeAbout({ restoreFocus: false });
+      openStewardship({ focus: !initial });
+      return;
+    }
+
+    if (hash === '#context') {
+      closeAbout({ restoreFocus: false });
+      closeStewardship({ restoreFocus: false });
+      openMeta({ focus: !initial });
+      return;
+    }
+
+    closeMeta({ restoreFocus: false });
+    closeStewardship({ restoreFocus: false });
+    closeAbout({ restoreFocus: false });
+  }
+
+  openers.forEach(el => {
+    el.addEventListener('click', e => {
+      if (location.hash.toLowerCase() === '#about') {
+        e.preventDefault();
+        openAbout();
+      }
+    });
+  });
+
+  stewardshipOpeners.forEach(el => {
+    el.addEventListener('click', e => {
+      if (location.hash.toLowerCase() === '#stewardship') {
+        e.preventDefault();
+        openStewardship();
+      }
+    });
+  });
+
+  metaOpeners.forEach(el => {
+    el.addEventListener('click', e => {
+      if (location.hash.toLowerCase() === '#context') {
+        e.preventDefault();
+        openMeta();
+      }
+    });
+  });
+
+  navMenu?.querySelectorAll('a').forEach(el => {
+    el.addEventListener('click', () => {
+      navMenu.removeAttribute('open');
+    });
+  });
+
+  document.addEventListener('click', e => {
+    if (navMenu?.hasAttribute('open') && !navMenu.contains(e.target)) {
+      navMenu.removeAttribute('open');
+    }
+    if (languageMenu?.hasAttribute('open') && !languageMenu.contains(e.target)) {
+      languageMenu.removeAttribute('open');
+    }
+  });
+
+  stewardshipClosers.forEach(el => {
+    el.addEventListener('click', () => {
+      closeStewardship();
+      if (location.hash.toLowerCase() === '#stewardship') clearHash();
+    });
+  });
+
+  closers.forEach(el => {
+    el.addEventListener('click', () => {
+      closeAbout();
