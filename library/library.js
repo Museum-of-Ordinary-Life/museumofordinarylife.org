@@ -8,7 +8,10 @@
     './assets/reading-room/part-05.txt',
     './assets/reading-room/part-06.txt',
     './assets/reading-room/part-07.txt',
-    './assets/reading-room/part-08.txt'
+    './assets/reading-room/part-08a.txt',
+    './assets/reading-room/part-08b.txt',
+    './assets/reading-room/part-08c.txt',
+    './assets/reading-room/part-08d.txt'
   ];
 
   async function loadRoomArt() {
