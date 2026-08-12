@@ -1,0 +1,14 @@
+{
+  "schema_version": "0.1",
+  "updated": "2026-08-12",
+  "shelves": [
+    {"id":"ordinary-life","label":"Ordinary Life","status":"forming","items":[]},
+    {"id":"home","label":"Home & Domestic Life","status":"forming","items":[]},
+    {"id":"work","label":"Work & Labor","status":"forming","items":[]},
+    {"id":"cities","label":"Cities & Public Life","status":"forming","items":[]},
+    {"id":"technology","label":"Technology & Interfaces","status":"forming","items":[]},
+    {"id":"archives","label":"Archives & Memory","status":"forming","items":[]},
+    {"id":"museum-publications","label":"Museum Publications","status":"forming","items":[]},
+    {"id":"field-notes","label":"Field Notes","status":"forming","items":[]}
+  ]
+}
