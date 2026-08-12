@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "program": {
+    "title": "Opening room",
+    "description": "The room is waiting for its first eligible collection media.",
+    "rotationSeconds": 90
+  },
+  "notes": [
+    "Only records with cafeDisplay set to true are shown.",
+    "surface may be window, projector, or room-sound.",
+    "Audio never starts until the visitor turns sound on."
+  ],
+  "scenes": []
+}
