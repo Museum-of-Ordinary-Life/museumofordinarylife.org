@@ -1,24 +1,12 @@
 ---
 layout: null
 ---
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="The Museum of Ordinary Life is a living archive of everyday life, established in 2026."><meta name="color-scheme" content="light dark"><meta name="theme-color" id="theme-color" content="#f4f1e8"><script>
-(() => {
-  try {
-    const savedTheme = localStorage.getItem('mol-theme');
-    if (savedTheme === 'light' || savedTheme === 'dark') {
-      document.documentElement.dataset.theme = savedTheme;
-      document.querySelector('#theme-color')?.setAttribute('content', savedTheme === 'dark' ? '#171713' : '#f4f1e8');
-    } else if (window.matchMedia?.('(prefers-color-scheme: dark)').matches) {
-      document.querySelector('#theme-color')?.setAttribute('content', '#171713');
-    }
-  } catch (_) {}
-})();
-</script><title>Museum of Ordinary Life</title><link rel="stylesheet" href="assets/css/base.css"><link rel="stylesheet" href="assets/css/components.css"><link rel="stylesheet" href="assets/css/enhancements.css"></head><body id="top">
-{% include body-01.html %}
-{% include body-02.html %}
-{% include body-03.html %}
-{% include body-04.html %}
-{% include body-05.html %}
-{% include body-06.html %}
-{% include body-07.html %}
-<script src="assets/js/site.js" defer></script></body></html>
+{% include current/site-01.html %}
+{% include current/site-02.html %}
+{% include current/site-03.html %}
+{% include current/site-04.html %}
+{% include current/site-05.html %}
+{% include current/site-06.html %}
+{% include current/site-07.html %}
+{% include current/site-08.html %}
+{% include current/site-09.html %}
