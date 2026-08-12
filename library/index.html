@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2eee6">
+  <title>Library / Reading Room — Museum of Ordinary Life</title>
+  <meta name="description" content="A quiet digital reading room for material that helps explain ordinary life.">
+  <link rel="icon" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="stylesheet" href="./library.css">
+</head>
+<body>
+  <a class="skip-link" href="#library-main">Skip to the Library</a>
+
+  <div class="library-shell">
+    <header class="library-bar">
+      <div class="library-brand" aria-label="Museum of Ordinary Life, Library and Reading Room">
+        <strong>Museum of Ordinary Life</strong>
+        <span>Library / Reading Room</span>
+      </div>
+      <a class="library-exit" href="../">Return to Museum</a>
+    </header>
+
+    <main class="reading-room" id="library-main">
+      <div class="room-architecture" aria-hidden="true">
+        <div class="window-wall"></div>
+        <div class="shelves"></div>
+        <div class="floor"></div>
+        <div class="table"></div>
+        <div class="lamp one"></div>
+        <div class="lamp two"></div>
+        <div class="chair one"></div>
+        <div class="chair two"></div>
+      </div>
+
+      <div class="window-label">
+        WINDOW 01<br>
+        Awaiting a view from the collection.
+      </div>
+
+      <section class="library-card" aria-labelledby="library-title">
+        <p class="library-kicker">The Library</p>
+        <h1 id="library-title">Come in.<br>Stay a while.</h1>
+        <p class="lede">A quiet digital reading room for material that helps explain ordinary life. It may be a website, but you can still sit down.</p>
+        <div class="library-actions" aria-label="Library actions">
+          <button type="button" data-library-action="shelves" aria-pressed="false">Browse the shelves</button>
+          <button type="button" data-library-action="table" aria-pressed="false">On the table</button>
+          <button type="button" data-library-action="notebook" aria-pressed="false">Notebook</button>
+          <button type="button" data-quiet-toggle aria-pressed="false">Quiet mode</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <aside class="library-panel" id="library-panel" aria-hidden="true" aria-labelledby="library-panel-title">
+    <div class="panel-head">
+      <h2 id="library-panel-title">Library</h2>
+      <button class="panel-close" type="button" data-panel-close aria-label="Close panel">Close</button>
+    </div>
+    <div class="panel-body" id="library-panel-body"></div>
+  </aside>
+
+  <script src="./library.js"></script>
+</body>
+</html>
