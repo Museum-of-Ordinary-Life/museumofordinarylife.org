@@ -1,0 +1,180 @@
+    const data = await loadHelpData();
+
+    if (room.classList.contains('is-open')) {
+      applyRoomMode(mode, data);
+      return;
+    }
+
+    lastFocus = document.activeElement;
+    applyRoomMode(mode, data);
+    log.replaceChildren();
+    addMessage('museum', (data.modes?.[roomMode] || fallbackData.modes[roomMode]).initial);
+
+    if (data === fallbackData) addMessage('museum', fallbackData.fallbacks.data_error);
+
+    room.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('archive-room-open');
+    requestAnimationFrame(() => room.classList.add('is-open'));
+    window.setTimeout(() => input.focus(), 520);
+  }
+
+  function clearHelpHash() {
+    if (location.hash.toLowerCase() === '#help') {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+  }
+
+  function closeRoom({ clearHelpHash: clear = true } = {}) {
+    if (!room.classList.contains('is-open')) return;
+    room.classList.remove('is-open');
+    room.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('archive-room-open');
+    keyBuffer = '';
+    if (clear) clearHelpHash();
+
+    window.setTimeout(() => {
+      if (lastFocus && typeof lastFocus.focus === 'function' && document.contains(lastFocus)) lastFocus.focus();
+    }, 120);
+  }
+
+  async function answer(raw) {
+    const q = normalize(raw);
+    if (!q) return;
+
+    if (['exit','close','leave','bye','goodbye'].includes(q)) {
+      addMessage('museum', roomMode === 'help' ? 'Closing the help desk.' : 'Returning you to normal opening hours.');
+      window.setTimeout(() => closeRoom(), 300);
+      return;
+    }
+
+    const data = await loadHelpData();
+    const match = bestEntry(raw, data);
+
+    if (!match) {
+      addMessage(
+        'museum',
+        data.fallbacks?.no_match || fallbackData.fallbacks.no_match,
+        [],
+        (data.category_suggestions?.helpdesk || []).slice(0, 4)
+      );
+      return;
+    }
+
+    if (!match.entry && match.fallback) {
+      addMessage(
+        'museum',
+        match.fallback,
+        [],
+        ["Where's the café?", "Is there a map?", "What can I see right now?", "Where's the front desk?"]
+      );
+      return;
+    }
+
+    const text = resolveAnswer(match.entry, data);
+    addMessage(
+      'museum',
+      text || data.fallbacks?.no_match || fallbackData.fallbacks.no_match,
+      match.entry.actions || [],
+      suggestionsFor(match.entry, data)
+    );
+  }
+
+  function submitQuestion(text) {
+    const value = (text ?? input.value).trim();
+    if (!value) return;
+    addMessage('you', value);
+    input.value = '';
+    input.style.height = '';
+    window.setTimeout(() => answer(value), 90);
+  }
+
+  // Visible Help Desk entrances.
+  document.querySelectorAll('[data-helpdesk-open]').forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      if (location.hash.toLowerCase() !== '#help') {
+        history.pushState(null, '', location.pathname + location.search + '#help');
+      }
+      openRoom('help');
+    });
+  });
+
+  // Direct link: museumofordinarylife.org/#help
+  if (location.hash.toLowerCase() === '#help') openRoom('help');
+
+  window.addEventListener('hashchange', () => {
+    if (location.hash.toLowerCase() === '#help') openRoom('help');
+  });
+
+  // Typed entrances. "help" is also public; "notice" remains the hidden one.
+  window.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && room.classList.contains('is-open')) {
+      event.preventDefault();
+      closeRoom();
+      return;
+    }
+
+    if (room.classList.contains('is-open')) return;
+
+    const target = event.target;
+    const typing = target && (target.matches?.('input, textarea, select') || target.isContentEditable);
+    if (typing || event.metaKey || event.ctrlKey || event.altKey) return;
+
+    const key = String(event.key || '').toLowerCase();
+    if (!/^[a-z]$/.test(key)) return;
+
+    keyBuffer = (keyBuffer + key).slice(-maxTriggerLength);
+    const matchedTrigger = triggers.find(word => keyBuffer.endsWith(word));
+    if (matchedTrigger) {
+      event.preventDefault();
+      keyBuffer = '';
+      openRoom(matchedTrigger);
+    }
+  });
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    submitQuestion();
+  });
+
+  input.addEventListener('keydown', event => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault();
+      submitQuestion();
+    }
+  });
+
+  input.addEventListener('input', () => {
+    input.style.height = 'auto';
+    input.style.height = Math.min(input.scrollHeight, 150) + 'px';
+  });
+
+  closeButton?.addEventListener('click', () => closeRoom());
+
+  promptButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      submitQuestion(button.dataset.archivePrompt || button.textContent || '');
+    });
+  });
+
+  room.addEventListener('keydown', event => {
+    if (event.key !== 'Tab') return;
+    const focusable = [...room.querySelectorAll('button, textarea, input, a[href], [tabindex]:not([tabindex="-1"])')]
+      .filter(el => !el.disabled && el.offsetParent !== null);
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
+  room.addEventListener('mousedown', event => {
+    if (event.target === room) closeRoom();
+  });
+})();
