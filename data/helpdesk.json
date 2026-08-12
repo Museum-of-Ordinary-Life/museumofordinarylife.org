@@ -1,0 +1,3038 @@
+{
+  "schema_version": "2.0",
+  "museum": "Museum of Ordinary Life",
+  "updated": "2026-08-11",
+  "privacy_note": "This static Help Desk matches questions in the visitor's browser. The current version doesn't send Help Desk questions to a server or model.",
+  "modes": {
+    "notice": {
+      "modeLabel": "Reference desk / after hours",
+      "status": "Uncatalogued room",
+      "stamp": "FOUND",
+      "title": "You<br><em>noticed.</em>",
+      "primary": "This room isn’t listed on the public floor plan.",
+      "secondary": "Ask about the Museum, the collection, or what you might document next.",
+      "placeholder": "Ask the Museum something…",
+      "initial": "After-hours desk open. Ask about the Museum, or ask for something ordinary to document.",
+      "exitNote": "Esc or “exit” returns to the galleries.",
+      "prompts": [
+        [
+          "What should I document?",
+          "What should I document?"
+        ],
+        [
+          "Why ordinary life?",
+          "Why ordinary life?"
+        ],
+        [
+          "Are you AI?",
+          "Are you AI?"
+        ],
+        [
+          "What's hidden here?",
+          "What's hidden here?"
+        ]
+      ]
+    },
+    "help": {
+      "modeLabel": "Visitor services / help desk",
+      "status": "Museum assistance",
+      "stamp": "OPEN",
+      "title": "Museum<br><em>help desk.</em>",
+      "primary": "Questions about the Museum, the collection, contributions, permissions, or finding your way around.",
+      "secondary": "This desk uses the Museum’s own help file. It can answer common questions and point you to the right part of the site.",
+      "placeholder": "How can the Museum help?",
+      "initial": "You’re at the Museum Help Desk. Ask about the collection, contributing, permissions, stewardship, local museums, or where to begin.",
+      "exitNote": "Esc or “exit” closes the help desk.",
+      "prompts": [
+        [
+          "What is this museum?",
+          "What is this museum?"
+        ],
+        [
+          "How do I contribute?",
+          "How do I contribute?"
+        ],
+        [
+          "What can I document?",
+          "What can I document?"
+        ],
+        [
+          "How does privacy work?",
+          "How does privacy work?"
+        ]
+      ]
+    }
+  },
+  "stopwords": [
+    "a",
+    "an",
+    "the",
+    "is",
+    "are",
+    "am",
+    "be",
+    "been",
+    "being",
+    "do",
+    "does",
+    "did",
+    "to",
+    "of",
+    "for",
+    "and",
+    "or",
+    "in",
+    "on",
+    "at",
+    "with",
+    "this",
+    "that",
+    "it",
+    "i",
+    "me",
+    "my",
+    "we",
+    "our",
+    "you",
+    "your",
+    "can",
+    "could",
+    "would",
+    "should",
+    "about",
+    "please",
+    "tell",
+    "explain"
+  ],
+  "synonym_groups": [
+    [
+      "contribute",
+      "submit",
+      "send",
+      "donate",
+      "share",
+      "give"
+    ],
+    [
+      "document",
+      "record",
+      "capture",
+      "preserve",
+      "save",
+      "archive"
+    ],
+    [
+      "photo",
+      "photograph",
+      "picture",
+      "image"
+    ],
+    [
+      "anonymous",
+      "anonymously",
+      "unnamed"
+    ],
+    [
+      "embargo",
+      "delay",
+      "delayed",
+      "later",
+      "closed"
+    ],
+    [
+      "permission",
+      "consent",
+      "allow",
+      "allowed",
+      "authorization"
+    ],
+    [
+      "withdraw",
+      "remove",
+      "delete",
+      "retract"
+    ],
+    [
+      "location",
+      "place",
+      "where"
+    ],
+    [
+      "steward",
+      "stewardship",
+      "volunteer",
+      "volunteering"
+    ],
+    [
+      "local",
+      "community",
+      "regional",
+      "neighborhood"
+    ],
+    [
+      "ai",
+      "artificial",
+      "model",
+      "models"
+    ],
+    [
+      "machinelearning",
+      "ml",
+      "learning"
+    ],
+    [
+      "generative",
+      "generate",
+      "generation",
+      "remix"
+    ],
+    [
+      "privacy",
+      "private",
+      "confidential"
+    ],
+    [
+      "exhibition",
+      "exhibit",
+      "show"
+    ],
+    [
+      "ordinary",
+      "everyday",
+      "mundane",
+      "boring"
+    ],
+    [
+      "help",
+      "assistance",
+      "support"
+    ],
+    [
+      "website",
+      "site",
+      "page"
+    ]
+  ],
+  "noticing_prompts": [
+    "Photograph the place where you charge your phone. Include the device, cables, furniture, wall, and whatever else is normally there.",
+    "Document the inside of a bag you use often, exactly as it is right now. Don’t rearrange it first.",
+    "Save a screenshot of an interface you use every week. Keep enough context that someone can tell what task it helped you do.",
+    "Photograph your junk drawer, medicine cabinet, nightstand, desk corner, or another small everyday ecosystem before touching anything.",
+    "Keep one receipt from an unremarkable purchase and add one sentence about why you bought what you bought.",
+    "Record thirty seconds of a sound you usually filter out: a crossing signal, refrigerator hum, transit announcement, laundry machine, hallway, or ventilation system.",
+    "Document the route from your front door to the place where you normally put your keys, bag, shoes, or coat.",
+    "Photograph something you repaired, improvised, taped together, repurposed, or simply learned to live with.",
+    "Write down the tabs, apps, or windows open while you do an ordinary task. Interfaces are environments too.",
+    "Document everything within arm’s reach from where you are sitting. No rearranging.",
+    "Save a piece of bureaucracy: a form, ticket, confirmation screen, queue number, reminder, notice, or letter that quietly structures your day.",
+    "Describe one object you would never think to put in a museum. That’s probably a useful place to start.",
+    "Photograph the contents of your refrigerator door, bathroom counter, entryway, or kitchen sink at an ordinary moment.",
+    "Record a minute of an ordinary commute or trip: what you see, hear, wait for, tap, scan, carry, or ignore.",
+    "Save a notification or settings screen you expect will look completely normal to you in five years.",
+    "Document a small routine you do without thinking: making coffee, locking up, feeding an animal, taking medication, charging devices, or getting ready for bed.",
+    "Photograph an object twice: once by itself, and once where it normally lives."
+  ],
+  "hidden_notes": [
+    "The source code contains its own miniature exhibition. It has comments in places nobody needed to put comments.",
+    "There’s an accession note at the bottom of the HTML for anyone stubborn enough to read that far.",
+    "One source comment insists the site was not vibe-coded. The record adds: “It was aggressively supervised.”",
+    "The Museum has a basement. At least according to the source code.",
+    "Some hidden notes are jokes. Some are institutional philosophy wearing a fake mustache."
+  ],
+  "fallbacks": {
+    "no_match": "I don't have a reliable answer for that yet, and I don't want to guess. Try rephrasing it, tell me what you're looking for, or choose one of the questions below.",
+    "data_error": "The Help Desk file didn’t load. The rest of the Museum still works, but this desk has temporarily misplaced its catalog cards.",
+    "wayfinding_unknown": "I can't place that destination on the Museum map yet. Tell me what you're looking for, and I'll try to point you to the closest part of the site.",
+    "named_schedule_unknown": "I don't have an opening date for that name in the Help Desk file. The opening exhibition, “This Was Somebody’s Tuesday,” is still in preparation.",
+    "availability_unknown": "I can't confirm that from the current Help Desk file. If you're looking for a book, collection item, exhibition, service, or room, tell me which kind and I'll narrow it down."
+  },
+  "intent_patterns": {
+    "wayfinding": [
+      "where is",
+      "where's",
+      "where are",
+      "where can i find",
+      "where do i find",
+      "how do i get to",
+      "how can i get to",
+      "how do i reach",
+      "take me to",
+      "show me where",
+      "point me to",
+      "directions to",
+      "which way is",
+      "which way to",
+      "find the",
+      "looking for",
+      "i'm looking for",
+      "i am looking for"
+    ],
+    "hours": [
+      "when does",
+      "when is",
+      "what time does",
+      "what time is",
+      "hours",
+      "opening time",
+      "closing time",
+      "open today",
+      "open now"
+    ],
+    "availability": [
+      "do you have",
+      "is there",
+      "are there",
+      "can i find",
+      "can i get",
+      "does the museum have"
+    ]
+  },
+  "places": [
+    {
+      "id": "cafe",
+      "aliases": [
+        "cafe",
+        "café",
+        "coffee shop",
+        "coffee",
+        "collection lounge",
+        "lounge",
+        "quiet room",
+        "rest area",
+        "break room"
+      ],
+      "entry": "where-cafe"
+    },
+    {
+      "id": "restroom",
+      "aliases": [
+        "restroom",
+        "restrooms",
+        "bathroom",
+        "bathrooms",
+        "toilet",
+        "toilets",
+        "loo",
+        "washroom"
+      ],
+      "entry": "restroom"
+    },
+    {
+      "id": "exit",
+      "aliases": [
+        "exit",
+        "way out",
+        "get out",
+        "leave",
+        "back to museum",
+        "return to museum"
+      ],
+      "entry": "exit-wayfinding"
+    },
+    {
+      "id": "security",
+      "aliases": [
+        "security",
+        "security desk",
+        "guard",
+        "guards"
+      ],
+      "entry": "security"
+    },
+    {
+      "id": "lost-found",
+      "aliases": [
+        "lost and found",
+        "lost & found",
+        "lost property",
+        "found property"
+      ],
+      "entry": "lost-found"
+    },
+    {
+      "id": "front-desk",
+      "aliases": [
+        "front desk",
+        "information desk",
+        "information",
+        "visitor services",
+        "help desk",
+        "reception"
+      ],
+      "entry": "front-desk"
+    },
+    {
+      "id": "gift-shop",
+      "aliases": [
+        "gift shop",
+        "museum shop",
+        "shop",
+        "store",
+        "souvenir shop",
+        "souvenirs"
+      ],
+      "entry": "gift-shop"
+    },
+    {
+      "id": "books",
+      "aliases": [
+        "reading room",
+        "reading shelf",
+        "bookshelf",
+        "bookshelves",
+        "library",
+        "book",
+        "books"
+      ],
+      "entry": "books-reading"
+    },
+    {
+      "id": "exhibitions",
+      "aliases": [
+        "exhibition",
+        "exhibitions",
+        "gallery",
+        "galleries",
+        "somebody s tuesday",
+        "somebodys tuesday"
+      ],
+      "entry": "exhibition"
+    },
+    {
+      "id": "collection",
+      "aliases": [
+        "collection",
+        "archive",
+        "what we collect"
+      ],
+      "entry": "collection-categories"
+    },
+    {
+      "id": "contribute",
+      "aliases": [
+        "contribute",
+        "contribution",
+        "submission",
+        "submit",
+        "donate something"
+      ],
+      "entry": "contribute-overview"
+    },
+    {
+      "id": "accessibility",
+      "aliases": [
+        "accessibility",
+        "accessible entrance",
+        "wheelchair",
+        "captions",
+        "screen reader"
+      ],
+      "entry": "accessibility"
+    },
+    {
+      "id": "elevator",
+      "aliases": [
+        "elevator",
+        "elevators",
+        "lift",
+        "lifts",
+        "stairs",
+        "staircase"
+      ],
+      "entry": "physical-amenities"
+    },
+    {
+      "id": "coat-check",
+      "aliases": [
+        "coat check",
+        "coatcheck",
+        "locker",
+        "lockers",
+        "bag check"
+      ],
+      "entry": "physical-amenities"
+    },
+    {
+      "id": "parking",
+      "aliases": [
+        "parking",
+        "parking lot",
+        "garage",
+        "bike parking",
+        "bicycle parking",
+        "park",
+        "bike rack",
+        "bike racks"
+      ],
+      "entry": "physical-amenities"
+    },
+    {
+      "id": "water",
+      "aliases": [
+        "water fountain",
+        "water station",
+        "drinking water",
+        "water",
+        "coffee station",
+        "tea",
+        "fruit",
+        "snacks",
+        "refreshments"
+      ],
+      "entry": "cafe-refreshments"
+    },
+    {
+      "id": "map",
+      "aliases": [
+        "map",
+        "floor plan",
+        "museum map",
+        "site map"
+      ],
+      "entry": "museum-map"
+    },
+    {
+      "id": "museum-home",
+      "aliases": [
+        "museum",
+        "museum home",
+        "home page",
+        "main museum",
+        "main page",
+        "website"
+      ],
+      "entry": "where-museum"
+    }
+  ],
+  "category_suggestions": {
+    "visitor-services": [
+      "Where's the café?",
+      "What can I see right now?",
+      "How do I get back to the Museum?",
+      "Is there a map?"
+    ],
+    "museum": [
+      "What is this museum?",
+      "Why ordinary life?",
+      "What can I see right now?",
+      "Who's behind the Museum?"
+    ],
+    "collection": [
+      "What belongs in the collection?",
+      "What should I document?",
+      "How do I contribute?",
+      "Can I keep something private?"
+    ],
+    "documentation": [
+      "Give me something to document.",
+      "What counts as context?",
+      "Do I need the original file?",
+      "How specific should the location be?"
+    ],
+    "contribute": [
+      "What files can I send?",
+      "Can I contribute anonymously?",
+      "Can I delay publication?",
+      "What happens after I submit something?"
+    ],
+    "permissions": [
+      "Can I keep it archive-only?",
+      "Can the Museum use it for research?",
+      "What about machine learning?",
+      "Can I change my mind later?"
+    ],
+    "privacy": [
+      "Can I contribute anonymously?",
+      "Does the Help Desk save my questions?",
+      "Can I delay publication?",
+      "Can I withdraw something later?"
+    ],
+    "stewardship": [
+      "What do stewards do?",
+      "How do I become a steward?",
+      "Who runs the Museum?",
+      "Can I start a local museum?"
+    ],
+    "local": [
+      "Can I start a local museum?",
+      "Does it need a building?",
+      "Can I contribute from outside the U.S.?",
+      "How do local museum addresses work?"
+    ],
+    "access": [
+      "What languages are supported?",
+      "How accessible is the site?",
+      "Where's the Help Desk?",
+      "Can I help translate?"
+    ],
+    "exhibitions": [
+      "What can I see right now?",
+      "When does the opening exhibition open?",
+      "What's in the collection?",
+      "Where's the café?"
+    ],
+    "data": [
+      "Can AI train on contributions?",
+      "What is generative reuse?",
+      "How does research permission work?",
+      "What happens to provenance?"
+    ],
+    "context": [
+      "What is No One Noticed?",
+      "Why is the Museum real?",
+      "What is the Reality Layer?",
+      "What's hidden here?"
+    ],
+    "contact": [
+      "How do I contribute?",
+      "How do I become a steward?",
+      "How is email protected from scraping?",
+      "Where's the Help Desk?"
+    ],
+    "helpdesk": [
+      "Where's the café?",
+      "What can I ask you?",
+      "What can I see right now?",
+      "How do I contribute?"
+    ],
+    "afterhours": [
+      "What's hidden here?",
+      "Are you AI?",
+      "Give me something to document.",
+      "Who made this site?"
+    ]
+  },
+  "entries": [
+    {
+      "id": "about",
+      "category": "museum",
+      "questions": [
+        "what is this museum",
+        "what is the museum of ordinary life",
+        "what is museum of ordinary life",
+        "what is this place",
+        "what is this project",
+        "tell me about the museum",
+        "what does the museum do",
+        "what are you collecting here",
+        "what kind of museum is this",
+        "is this a real museum",
+        "about the museum",
+        "what is mol",
+        "what even is this place",
+        "what am i looking at",
+        "so what is this",
+        "what's going on here",
+        "why is there a museum of ordinary life"
+      ],
+      "answer": "The Museum of Ordinary Life is an archive established in 2026. It documents ordinary objects, rooms, interfaces, routines, paperwork, sounds, stories, and the context around them while that context can still be recorded. For now, it’s a distributed digital archive rather than a single building.",
+      "keywords": [
+        "museum of ordinary life",
+        "real museum",
+        "distributed digital archive"
+      ],
+      "actions": [
+        {
+          "label": "About the Museum",
+          "href": "#about"
+        },
+        {
+          "label": "Browse the collection",
+          "href": "#collection"
+        }
+      ],
+      "tags": [
+        "about",
+        "museum"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "why-ordinary",
+      "category": "museum",
+      "questions": [
+        "why ordinary life",
+        "why does ordinary life matter",
+        "why preserve ordinary life",
+        "why document ordinary things",
+        "why collect boring things",
+        "why save everyday stuff",
+        "what is the point of this museum",
+        "why is this important",
+        "why should anyone care about ordinary life",
+        "why bother documenting this",
+        "why the mundane",
+        "why everyday life"
+      ],
+      "answer": "Much of ordinary life disappears without leaving much of a record. Bedrooms, receipts, routines, interfaces, clutter, workarounds, waiting, maintenance, and small habits are easy to lose. The Museum records them before we know which details people will later wish somebody had saved. A life doesn’t have to be exceptional to matter.",
+      "keywords": [
+        "why ordinary",
+        "ordinary life matter",
+        "boring things",
+        "mundane"
+      ],
+      "actions": [
+        {
+          "label": "Why ordinary life?",
+          "href": "#why-ordinary-life"
+        }
+      ],
+      "tags": [
+        "purpose"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "why-2026",
+      "category": "museum",
+      "questions": [
+        "why 2026",
+        "why did you start in 2026",
+        "why does the collection start in 2026",
+        "why is 2026 important",
+        "why collection window 2026",
+        "when did the museum start",
+        "when was the museum established",
+        "what year did this start",
+        "why begin now"
+      ],
+      "answer": "Because 2026 is when the Museum started. The collection begins in the present instead of trying to reconstruct ordinary context after it has already disappeared.",
+      "keywords": [
+        "2026",
+        "established",
+        "collection window"
+      ],
+      "actions": [
+        {
+          "label": "About the Museum",
+          "href": "#about"
+        }
+      ],
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "what-counts",
+      "category": "collection",
+      "questions": [
+        "what counts",
+        "what belongs in the collection",
+        "what can go in the museum",
+        "what do you collect",
+        "what kinds of things do you collect",
+        "what can i contribute",
+        "what can i document",
+        "what should i send",
+        "what is admissible",
+        "can anything be in the museum",
+        "does this count",
+        "would this count",
+        "is my thing ordinary enough",
+        "what makes something museum worthy",
+        "what makes something count",
+        "what can go in here",
+        "what can i give you",
+        "what kind of stuff do you want",
+        "would this belong in the museum",
+        "what kinds of things count"
+      ],
+      "answer": "Almost anything can count if it helps explain how everyday life worked. The Museum is interested in the thing and its context: what it was, where it lived, how it was used, who used it, and when. Rarity, beauty, and a profound story aren’t requirements.",
+      "keywords": [
+        "what counts",
+        "belongs",
+        "collect",
+        "admissible",
+        "museum worthy"
+      ],
+      "actions": [
+        {
+          "label": "What we collect",
+          "href": "#collection"
+        }
+      ],
+      "tags": [
+        "collection"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "collection-categories",
+      "category": "collection",
+      "questions": [
+        "what are the collection categories",
+        "what categories do you have",
+        "what sections are in the collection",
+        "what types of records",
+        "what kind of material",
+        "give me examples of what you collect",
+        "examples of ordinary things",
+        "what sort of artifacts"
+      ],
+      "answer": "The current collection categories are Home, Work, Money, Technology, Public life, Paperwork, Routine, and Digital traces. They’re starting points, not strict boxes.",
+      "keywords": [
+        "home work money technology public paperwork routine digital"
+      ],
+      "actions": [
+        {
+          "label": "See collection categories",
+          "href": "#collection"
+        }
+      ],
+      "tags": [
+        "collection"
+      ]
+    },
+    {
+      "id": "field-notes",
+      "category": "documentation",
+      "questions": [
+        "how should i document something",
+        "how do i document ordinary life",
+        "any documentation tips",
+        "how do i take a museum photo",
+        "how should i photograph an object",
+        "how much context should i include",
+        "field notes",
+        "ways of noticing",
+        "how do i record context"
+      ],
+      "answer": "Keep the thing and its surroundings together. One useful method is to photograph an object twice: once clearly, then again where it normally lives. Save interfaces before they disappear. Don’t worry about making the record profound. A fragment can be useful without explaining a whole person.",
+      "keywords": [
+        "field notes",
+        "photograph twice",
+        "context",
+        "documentation tips"
+      ],
+      "actions": [
+        {
+          "label": "Read Field Notes",
+          "href": "#field-notes"
+        }
+      ],
+      "tags": [
+        "documentation"
+      ]
+    },
+    {
+      "id": "random-document",
+      "category": "documentation",
+      "questions": [
+        "what should i document",
+        "give me something to document",
+        "give me something to notice",
+        "what should i notice",
+        "random prompt",
+        "surprise me",
+        "give me an assignment",
+        "field assignment",
+        "what can i photograph right now",
+        "i do not know what to document",
+        "i don't know what to document",
+        "pick something for me"
+      ],
+      "keywords": [
+        "something to document",
+        "something to notice",
+        "random",
+        "surprise"
+      ],
+      "tags": [
+        "documentation"
+      ],
+      "random_pool": "noticing_prompts",
+      "priority": 5
+    },
+    {
+      "id": "contribute-overview",
+      "category": "contribute",
+      "questions": [
+        "how do i contribute",
+        "how can i contribute",
+        "how do i submit",
+        "how can i submit something",
+        "how do i send something",
+        "where do i send a contribution",
+        "how do contributions work",
+        "submission instructions",
+        "contribution instructions",
+        "i want to contribute",
+        "i want to submit something",
+        "how to donate an item",
+        "how to add something to the museum",
+        "okay how do i send something",
+        "where do i submit",
+        "i want to add something",
+        "how can i give the museum something",
+        "how do submissions work",
+        "what do i do if i want to contribute"
+      ],
+      "answer": "Send the original photo, video, audio file, screenshot, or document when possible. Tell us what it is and when you documented it. Add an approximate location if it matters and whatever context you want preserved. Then choose publication and reuse permissions separately.",
+      "keywords": [
+        "contribute",
+        "submit",
+        "send something",
+        "submission",
+        "contribution"
+      ],
+      "actions": [
+        {
+          "label": "Contribution instructions",
+          "href": "#contribute"
+        }
+      ],
+      "tags": [
+        "contribute"
+      ],
+      "priority": 5
+    },
+    {
+      "id": "accepted-files",
+      "category": "contribute",
+      "questions": [
+        "what file types can i send",
+        "what can i upload",
+        "can i send photos",
+        "can i send video",
+        "can i send audio",
+        "can i send screenshots",
+        "can i send documents",
+        "what kind of files do you accept",
+        "do you take pictures",
+        "do you take recordings",
+        "can i send a picture",
+        "can i send you a picture",
+        "can i send a photo",
+        "can i send an image"
+      ],
+      "answer": "The site currently asks for original photos, videos, audio files, screenshots, or documents when possible. If what you want to preserve doesn’t fit those forms, contact the Museum rather than forcing it into the wrong format.",
+      "keywords": [
+        "photo video audio screenshot document file"
+      ],
+      "actions": [
+        {
+          "label": "Contribution instructions",
+          "href": "#contribute"
+        }
+      ],
+      "tags": [
+        "contribute",
+        "files"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "original-file",
+      "category": "contribute",
+      "questions": [
+        "why do you want the original file",
+        "do i need the original",
+        "should i send the original photo",
+        "can i send an edited image",
+        "can i send a resized image",
+        "should i edit my photo first",
+        "do you keep originals",
+        "original file"
+      ],
+      "answer": "The Museum prefers the original file or record when possible because it preserves more of the record. Public copies may later be cropped, resized, or redacted while the archival original is kept separately.",
+      "keywords": [
+        "original file",
+        "edited",
+        "cropped",
+        "resized",
+        "archival original"
+      ],
+      "actions": [
+        {
+          "label": "Contribution instructions",
+          "href": "#contribute"
+        }
+      ],
+      "tags": [
+        "contribute",
+        "preservation"
+      ]
+    },
+    {
+      "id": "what-when",
+      "category": "contribute",
+      "questions": [
+        "what information should i include",
+        "what metadata do you need",
+        "what do i say about my contribution",
+        "what details are required",
+        "do i need a date",
+        "when should i say it was made",
+        "what and when"
+      ],
+      "answer": "At minimum, say what the thing or record is and when you documented it. The Museum also asks for an approximate location when it matters and any context you want to keep with the record.",
+      "keywords": [
+        "metadata",
+        "what and when",
+        "date",
+        "details"
+      ],
+      "actions": [
+        {
+          "label": "Contribution instructions",
+          "href": "#contribute"
+        }
+      ],
+      "tags": [
+        "contribute",
+        "metadata"
+      ]
+    },
+    {
+      "id": "location",
+      "category": "contribute",
+      "questions": [
+        "do i need to give my location",
+        "how precise should location be",
+        "do you need my address",
+        "should i include an address",
+        "what location should i give",
+        "is city enough",
+        "approximate location",
+        "can i leave out location",
+        "do i have to say where it is"
+      ],
+      "answer": "Give an approximate location only if it matters to the record. A city name is plenty. The contribution instructions do not ask for a precise street address.",
+      "keywords": [
+        "approximate location",
+        "city name",
+        "address",
+        "location"
+      ],
+      "actions": [
+        {
+          "label": "Contribution instructions",
+          "href": "#contribute"
+        }
+      ],
+      "tags": [
+        "contribute",
+        "privacy"
+      ]
+    },
+    {
+      "id": "context",
+      "category": "contribute",
+      "questions": [
+        "how much context do i need",
+        "do i need to explain it",
+        "what should i write about it",
+        "do i need a story",
+        "is one sentence enough",
+        "can i submit without explanation",
+        "what does context mean",
+        "what kind of context"
+      ],
+      "answer": "Add as much or as little context as feels right. One sentence can be enough. No explanation can also be useful information. Context might include where something lived, how it was used, what surrounded it, or what it meant to you.",
+      "keywords": [
+        "context",
+        "explain",
+        "story",
+        "one sentence"
+      ],
+      "actions": [
+        {
+          "label": "Contribution instructions",
+          "href": "#contribute"
+        }
+      ],
+      "tags": [
+        "contribute",
+        "context"
+      ]
+    },
+    {
+      "id": "public-display",
+      "category": "permissions",
+      "questions": [
+        "will my contribution be public",
+        "does submitting mean publishing",
+        "do you publish everything",
+        "will everyone see it",
+        "what is public display",
+        "can i choose whether it is public",
+        "can i keep it private",
+        "publication options",
+        "display permission"
+      ],
+      "answer": "Submitting something to the archive doesn’t automatically make it public. Preservation and publication are separate. You can allow public display now, choose a later release, ask the Museum to check with you again, or preserve the record without public display.",
+      "keywords": [
+        "public display",
+        "publish",
+        "publication",
+        "preservation and publication"
+      ],
+      "actions": [
+        {
+          "label": "Consent & permission model",
+          "href": "#data-and-ai"
+        }
+      ],
+      "tags": [
+        "permissions",
+        "publication"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "anonymous",
+      "category": "permissions",
+      "questions": [
+        "can i be anonymous",
+        "can you publish it anonymously",
+        "can i hide my name",
+        "do i have to use my name",
+        "can i contribute without my name",
+        "anonymous contribution",
+        "can attribution be anonymous",
+        "can my identity stay private"
+      ],
+      "answer": "Yes. The current permission model allows public display with your name or anonymously. Attribution for other permitted uses is also recorded separately.",
+      "keywords": [
+        "anonymous",
+        "anonymously",
+        "my name",
+        "identity"
+      ],
+      "actions": [
+        {
+          "label": "Consent & permission model",
+          "href": "#data-and-ai"
+        }
+      ],
+      "tags": [
+        "permissions",
+        "identity"
+      ]
+    },
+    {
+      "id": "embargo",
+      "category": "permissions",
+      "questions": [
+        "can i delay publication",
+        "can i set an embargo",
+        "can this be released later",
+        "can you publish it in ten years",
+        "can i choose a release date",
+        "can i wait before publishing",
+        "can i keep it closed for years",
+        "delayed release",
+        "publish after a date",
+        "wait x years"
+      ],
+      "answer": "You can choose a delayed release. The current options include publication on or after a chosen date, waiting a chosen number of years, asking again later, or keeping the record archive-only.",
+      "keywords": [
+        "embargo",
+        "delayed release",
+        "release date",
+        "years",
+        "closed"
+      ],
+      "actions": [
+        {
+          "label": "Delayed release options",
+          "href": "#data-and-ai"
+        }
+      ],
+      "tags": [
+        "permissions",
+        "embargo"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "archive-only",
+      "category": "permissions",
+      "questions": [
+        "what does archive only mean",
+        "can you preserve it but not publish it",
+        "can i submit something that never goes public",
+        "can it stay private in the archive",
+        "archive only",
+        "do not publish",
+        "don't publish",
+        "preserve but do not show"
+      ],
+      "answer": "Yes. A contribution can be preserved without public display. The current contribution choices include “archive only and ask before publishing” and “archive only; don’t publish.” Archive-only status doesn’t automatically grant research, machine learning, or generative-reuse permission.",
+      "keywords": [
+        "archive only",
+        "do not publish",
+        "don't publish",
+        "without public display"
+      ],
+      "actions": [
+        {
+          "label": "Consent & permission model",
+          "href": "#data-and-ai"
+        }
+      ],
+      "tags": [
+        "permissions",
+        "archive"
+      ]
+    },
+    {
+      "id": "ask-again",
+      "category": "permissions",
+      "questions": [
+        "what does ask again mean",
+        "can you ask me later",
+        "can i require new permission later",
+        "what if i am not sure yet",
+        "can i decide later",
+        "ask me again",
+        "later confirmation",
+        "new yes"
+      ],
+      "answer": "You can require the Museum to ask again after a date or number of years. An “ask again” instruction still requires a new yes before the Museum takes that action.",
+      "keywords": [
+        "ask again",
+        "later confirmation",
+        "new yes"
+      ],
+      "actions": [
+        {
+          "label": "Contribution instructions",
+          "href": "#contribute"
+        }
+      ],
+      "tags": [
+        "permissions"
+      ]
+    },
+    {
+      "id": "research",
+      "category": "permissions",
+      "questions": [
+        "can researchers use my contribution",
+        "what is research permission",
+        "does public mean research is allowed",
+        "can academics study it",
+        "can my record be used for research",
+        "research consent",
+        "research use"
+      ],
+      "answer": "Research is a separate permission. Public display doesn’t automatically allow research, and archive-only status doesn’t automatically allow it either. You can allow or decline research use separately.",
+      "keywords": [
+        "research",
+        "researchers",
+        "study"
+      ],
+      "actions": [
+        {
+          "label": "Consent & permission model",
+          "href": "#data-and-ai"
+        }
+      ],
+      "tags": [
+        "permissions",
+        "research"
+      ]
+    },
+    {
+      "id": "machine-learning",
+      "category": "permissions",
+      "questions": [
+        "can ai train on my contribution",
+        "can my contribution be used for machine learning",
+        "do you train ai on submissions",
+        "what is machine learning permission",
+        "does public mean ai can use it",
+        "can models learn from it",
+        "training data",
+        "ai training",
+        "ml permission"
+      ],
+      "answer": "Machine learning is a separate permission. A contributor may allow or decline computational analysis or learning from the record. Permission for machine learning does not automatically allow generative reuse.",
+      "keywords": [
+        "machine learning",
+        "ai training",
+        "training data",
+        "models learn"
+      ],
+      "actions": [
+        {
+          "label": "Data & AI permissions",
+          "href": "#data-and-ai"
+        }
+      ],
+      "tags": [
+        "permissions",
+        "ai"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "generative-reuse",
+      "category": "permissions",
+      "questions": [
+        "what is generative reuse",
+        "can ai generate from my contribution",
+        "can a model remix my work",
+        "can it imitate my submission",
+        "does machine learning allow generation",
+        "can ai reproduce it",
+        "generative ai permission",
+        "can my contribution be used to generate things"
+      ],
+      "answer": "Generative reuse is recorded separately from machine learning. It covers reproduction, remixing, imitation, or generation from a contribution. Saying yes to machine learning does not automatically mean yes to generative reuse.",
+      "keywords": [
+        "generative reuse",
+        "remix",
+        "imitate",
+        "generate"
+      ],
+      "actions": [
+        {
+          "label": "Data & AI permissions",
+          "href": "#data-and-ai"
+        }
+      ],
+      "tags": [
+        "permissions",
+        "ai"
+      ]
+    },
+    {
+      "id": "attribution",
+      "category": "permissions",
+      "questions": [
+        "will i be credited",
+        "how does credit work",
+        "what is attribution",
+        "can i choose credit",
+        "can reuse name me",
+        "can you keep my name only in the archive",
+        "identity and attribution",
+        "do i get credit"
+      ],
+      "answer": "Identity and attribution are recorded separately. Reuse can identify the contributor, remain anonymous, or keep attribution only inside the archive, depending on the contributor’s choice.",
+      "keywords": [
+        "credit",
+        "attribution",
+        "identity"
+      ],
+      "actions": [
+        {
+          "label": "Consent & permission model",
+          "href": "#data-and-ai"
+        }
+      ],
+      "tags": [
+        "permissions",
+        "identity"
+      ]
+    },
+    {
+      "id": "future-uses",
+      "category": "permissions",
+      "questions": [
+        "what about future uses",
+        "what if a future use does not exist yet",
+        "can i refuse unknown uses",
+        "can you ask me about new uses later",
+        "unknown future use",
+        "uses that cannot be described yet",
+        "future permission"
+      ],
+      "answer": "For a use that can’t yet be described concretely, the contributor can allow it, decline it, or require the Museum to ask again.",
+      "keywords": [
+        "future uses",
+        "unknown uses",
+        "ask again"
+      ],
+      "actions": [
+        {
+          "label": "Consent & permission model",
+          "href": "#data-and-ai"
+        }
+      ],
+      "tags": [
+        "permissions"
+      ]
+    },
+    {
+      "id": "withdrawal",
+      "category": "permissions",
+      "questions": [
+        "can i change my mind",
+        "can i withdraw my contribution",
+        "can i remove my submission",
+        "can i delete my record later",
+        "can i change permissions",
+        "can i revoke permission",
+        "withdrawal request",
+        "take it back"
+      ],
+      "answer": "Contributors may revise permissions or request withdrawal where the Museum can lawfully and technically do so. Some downstream copies, indexes, or completed model training can’t necessarily be reversed; when that’s true, the Museum says so plainly.",
+      "keywords": [
+        "change my mind",
+        "withdraw",
+        "remove",
+        "revoke",
+        "change permissions"
+      ],
+      "actions": [
+        {
+          "label": "Consent & permission model",
+          "href": "#data-and-ai"
+        }
+      ],
+      "tags": [
+        "permissions",
+        "withdrawal"
+      ]
+    },
+    {
+      "id": "privacy-contribution",
+      "category": "privacy",
+      "questions": [
+        "what should i not send",
+        "can i send private information",
+        "what about other people's information",
+        "can i submit someone else's personal info",
+        "privacy when contributing",
+        "what should i redact",
+        "should i remove private information",
+        "can i send personal data"
+      ],
+      "answer": "Check files for private information you don’t want preserved, and don’t send private information about another person without permission. Public copies may be redacted while the archival original is kept separately.",
+      "keywords": [
+        "private information",
+        "another person",
+        "redact",
+        "personal data"
+      ],
+      "actions": [
+        {
+          "label": "Contribution privacy notes",
+          "href": "#contribute"
+        }
+      ],
+      "tags": [
+        "privacy",
+        "contribute"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "helpdesk-privacy",
+      "category": "privacy",
+      "questions": [
+        "is this chat private",
+        "where do my questions go",
+        "are you logging this chat",
+        "does this send my message anywhere",
+        "does the help desk store my questions",
+        "what happens to what i type here",
+        "is this help desk tracking me",
+        "is this conversation saved",
+        "do you keep chat history",
+        "does this leave my browser"
+      ],
+      "answer": "Nothing you type into this Help Desk is sent anywhere in the current version. Matching happens in your browser using the Help Desk file already loaded with the page. Reloading the page forgets the conversation.",
+      "keywords": [
+        "chat private",
+        "questions go",
+        "logging",
+        "chat history",
+        "leave my browser"
+      ],
+      "tags": [
+        "privacy",
+        "helpdesk"
+      ],
+      "priority": 6
+    },
+    {
+      "id": "helpdesk-ai",
+      "category": "helpdesk",
+      "questions": [
+        "are you ai",
+        "are you an ai",
+        "are you a chatbot",
+        "are you a language model",
+        "is this using chatgpt",
+        "is this powered by ai",
+        "what model are you",
+        "are you machine learning",
+        "is the help desk ai"
+      ],
+      "answer": "No. Not yet. This version is a small local question matcher. It reads the Museum’s Help Desk file in your browser and returns the closest curated answer. If the Museum later adds a model, the interface should say so clearly.",
+      "keywords": [
+        "are you ai",
+        "chatbot",
+        "language model",
+        "chatgpt",
+        "powered by ai"
+      ],
+      "tags": [
+        "helpdesk",
+        "ai"
+      ],
+      "priority": 6
+    },
+    {
+      "id": "stewardship",
+      "category": "stewardship",
+      "questions": [
+        "what is stewardship",
+        "what do stewards do",
+        "who runs the museum",
+        "how is the museum governed",
+        "how does stewardship work",
+        "can i help run the museum",
+        "what are museum stewards",
+        "who takes care of the collection",
+        "is there a curator"
+      ],
+      "answer": "The Museum is being built around shared stewardship rather than a permanent central curatorial authority. Stewards may care for collections, review records, make exhibitions, document ordinary life, maintain the website and preservation systems, and take part in decisions about context, consent, and interpretation.",
+      "keywords": [
+        "stewardship",
+        "stewards",
+        "curator",
+        "governance",
+        "who runs"
+      ],
+      "actions": [
+        {
+          "label": "Stewardship",
+          "href": "#stewardship"
+        }
+      ],
+      "tags": [
+        "stewardship"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "become-steward",
+      "category": "stewardship",
+      "questions": [
+        "how do i become a steward",
+        "can i volunteer",
+        "how can i help the museum",
+        "are you looking for stewards",
+        "can i join stewardship",
+        "i want to volunteer",
+        "how do i get involved",
+        "can i help with the archive",
+        "can i help translate"
+      ],
+      "answer": "The Museum is looking for an initial group of stewards. Participation can begin with one conversation or gathering; there’s no requirement to make an ongoing commitment. Stewardship can include collection work, consent and ethics, interpretation, exhibitions, community work, infrastructure, or translation.",
+      "keywords": [
+        "become a steward",
+        "volunteer",
+        "get involved",
+        "looking for stewards",
+        "translate"
+      ],
+      "actions": [
+        {
+          "label": "Steward the Museum",
+          "href": "#stewardship"
+        }
+      ],
+      "tags": [
+        "stewardship",
+        "volunteer"
+      ]
+    },
+    {
+      "id": "local-museums",
+      "category": "local",
+      "questions": [
+        "what are local museums",
+        "how do local museums work",
+        "can my city have one",
+        "can my community start a museum",
+        "can i start a local collection",
+        "what is the museum network",
+        "can there be more than one museum",
+        "how does the distributed network work",
+        "can we make our own museum",
+        "can my neighborhood make one of these",
+        "can my town start one",
+        "can we make one of these",
+        "can my community make one of these"
+      ],
+      "answer": "The Museum may take many local forms. A neighborhood, town, language community, diaspora, workplace, or temporary group can keep its own collection and still connect to the wider Museum. Local stewards decide what to collect, how to describe it, which languages to use, and what stays local, closed, delayed, or offline.",
+      "keywords": [
+        "local museums",
+        "local collection",
+        "community",
+        "network"
+      ],
+      "actions": [
+        {
+          "label": "Local museums",
+          "href": "#local-museums"
+        }
+      ],
+      "tags": [
+        "local"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "building",
+      "category": "local",
+      "questions": [
+        "does a local museum need a building",
+        "do we need a physical museum",
+        "can it be temporary",
+        "can it be online",
+        "can a museum be one day",
+        "does this need a permanent space",
+        "can this be digital only"
+      ],
+      "answer": "No building is required. A local museum can be permanent or temporary, physical or digital, and can exist for a day, a season, one question, or one exhibition.",
+      "keywords": [
+        "need a building",
+        "physical museum",
+        "temporary",
+        "digital only"
+      ],
+      "actions": [
+        {
+          "label": "Local museums",
+          "href": "#local-museums"
+        }
+      ],
+      "tags": [
+        "local"
+      ]
+    },
+    {
+      "id": "local-addresses",
+      "category": "local",
+      "questions": [
+        "can local museums have subdomains",
+        "what would a local museum url look like",
+        "can we get a museumofordinarylife address",
+        "sf museum of ordinary life",
+        "how are local sites named",
+        "local museum website address"
+      ],
+      "answer": "Participating museums may eventually use recognizable addresses within the wider Museum while keeping their own name, languages, collections, exhibitions, and stewards. The site presents this as a possible network structure rather than a finished service.",
+      "keywords": [
+        "subdomain",
+        "local address",
+        "website address"
+      ],
+      "actions": [
+        {
+          "label": "Local museums",
+          "href": "#local-museums"
+        }
+      ],
+      "tags": [
+        "local",
+        "web"
+      ]
+    },
+    {
+      "id": "international",
+      "category": "local",
+      "questions": [
+        "is this international",
+        "is the museum global",
+        "is this only in san francisco",
+        "can people outside the us contribute",
+        "can anyone contribute",
+        "is this for everyone",
+        "can another country participate",
+        "where can contributions come from",
+        "is this only for people in america",
+        "is this only for americans",
+        "can people in other countries contribute",
+        "can people anywhere contribute",
+        "is this just a us project"
+      ],
+      "answer": "The Museum isn’t limited to one city or country. Records can come from anywhere ordinary life is being lived and documented, and communities anywhere may establish their own collections under local stewardship.",
+      "keywords": [
+        "international",
+        "global",
+        "outside the us",
+        "anyone contribute",
+        "another country"
+      ],
+      "actions": [
+        {
+          "label": "Local museums",
+          "href": "#local-museums"
+        }
+      ],
+      "tags": [
+        "local",
+        "international"
+      ]
+    },
+    {
+      "id": "language",
+      "category": "access",
+      "questions": [
+        "what languages do you support",
+        "is the museum only in english",
+        "can i contribute in another language",
+        "can i help translate",
+        "are there translations",
+        "translation policy",
+        "will there be other languages"
+      ],
+      "answer": "English is currently the source edition. Browser translation is available for now. Future translations should identify the language used and keep local wording where it matters. Language stewardship is part of the Museum’s longer-term plan.",
+      "keywords": [
+        "language",
+        "translations",
+        "english",
+        "translate"
+      ],
+      "tags": [
+        "accessibility",
+        "language"
+      ]
+    },
+    {
+      "id": "accessibility",
+      "category": "access",
+      "questions": [
+        "is the site accessible",
+        "do you have dark mode",
+        "can i change the theme",
+        "does the site support keyboard navigation",
+        "accessibility options",
+        "light mode dark mode",
+        "do you support screen readers",
+        "can i use this with a keyboard",
+        "is this accessible",
+        "do you have captions",
+        "what about reduced motion"
+      ],
+      "answer": "The site includes light, dark, and automatic color themes, keyboard focus states, a skip link, responsive layouts, and reduced-motion handling. Translation and broader accessibility work are still part of the Museum’s ongoing stewardship.",
+      "keywords": [
+        "accessible",
+        "dark mode",
+        "light mode",
+        "theme",
+        "keyboard",
+        "reduced motion"
+      ],
+      "tags": [
+        "accessibility"
+      ]
+    },
+    {
+      "id": "exhibition",
+      "category": "exhibitions",
+      "questions": [
+        "what exhibitions are there",
+        "what is the opening exhibition",
+        "what is this was somebody's tuesday",
+        "is there an exhibition now",
+        "when will the exhibition open",
+        "what does in preparation mean",
+        "show me the exhibition",
+        "what can i see right now",
+        "what's on view",
+        "what is on view",
+        "what are you showing",
+        "what's showing",
+        "anything on display",
+        "what exhibit can i see"
+      ],
+      "answer": "The opening exhibition is “This Was Somebody’s Tuesday.” It’s in preparation and will reconstruct an ordinary day through alarms, kitchens, commutes, work, purchases, waiting, messages, errands, meals, screens, and sleep. The image area is intentionally waiting for an original photograph from the 2026 collection.",
+      "keywords": [
+        "opening exhibition",
+        "somebody's tuesday",
+        "in preparation"
+      ],
+      "actions": [
+        {
+          "label": "Exhibitions",
+          "href": "#exhibitions"
+        }
+      ],
+      "tags": [
+        "exhibitions"
+      ]
+    },
+    {
+      "id": "status",
+      "category": "museum",
+      "questions": [
+        "is the museum open",
+        "what is the current status",
+        "is the collection open",
+        "are you accepting contributions",
+        "are you collecting now",
+        "what are you collecting now",
+        "collection status",
+        "is this active",
+        "is anything here yet",
+        "is there anything to see",
+        "are you live",
+        "is this museum running",
+        "is this museum still being built"
+      ],
+      "answer": "The archive is open and the collection is actively forming. The current collection window is 2026 to the present.",
+      "keywords": [
+        "archive open",
+        "actively forming",
+        "collecting now",
+        "status"
+      ],
+      "actions": [
+        {
+          "label": "Contribute",
+          "href": "#contribute"
+        }
+      ],
+      "tags": [
+        "status"
+      ]
+    },
+    {
+      "id": "where-museum",
+      "category": "museum",
+      "questions": [
+        "where is the museum",
+        "where are you located",
+        "what is the museum address",
+        "is there a physical location",
+        "can i visit in person",
+        "where can i visit",
+        "do you have a building",
+        "is there a real building i can visit",
+        "is there a museum building i can go to",
+        "can i go to the museum in person",
+        "where is this place in real life",
+        "where's the building",
+        "can i come here physically",
+        "what city are you in",
+        "where is the actual museum"
+      ],
+      "answer": "For now, the Museum is here online and wherever ordinary life is being documented. The main Museum is currently a distributed digital archive rather than a public building.",
+      "keywords": [
+        "where is the museum",
+        "physical location",
+        "visit in person",
+        "address"
+      ],
+      "actions": [
+        {
+          "label": "About the Museum",
+          "href": "#about"
+        }
+      ],
+      "tags": [
+        "museum",
+        "location"
+      ]
+    },
+    {
+      "id": "who-behind",
+      "category": "museum",
+      "questions": [
+        "who made this",
+        "who is behind the museum",
+        "who founded the museum",
+        "who owns the museum",
+        "who created this project",
+        "who started this",
+        "is there an organization behind it",
+        "who's behind the curtain",
+        "who is behind the curtain",
+        "who's behind all this",
+        "who actually made this",
+        "who is responsible for this"
+      ],
+      "answer": "The Museum was established in 2026 and is currently stewarded as an independent experimental cultural project. It isn’t yet a conventional museum organization, and its longer-term model is distributed stewardship.",
+      "keywords": [
+        "who is behind",
+        "who founded",
+        "who created",
+        "organization"
+      ],
+      "actions": [
+        {
+          "label": "About the Museum",
+          "href": "#about"
+        },
+        {
+          "label": "Stewardship",
+          "href": "#stewardship"
+        }
+      ],
+      "tags": [
+        "museum",
+        "governance"
+      ]
+    },
+    {
+      "id": "data-ai",
+      "category": "data",
+      "questions": [
+        "why does the museum talk about ai",
+        "why is there a data and ai section",
+        "is the museum a dataset",
+        "what does data and ai mean",
+        "why machine learning",
+        "how is the archive data",
+        "can the collection become a dataset"
+      ],
+      "answer": "As the collection grows, it can also function as a dataset about human life. That’s why the Museum records permissions now instead of treating future data use as automatic. Public display, research, machine learning, and generative reuse are separate choices.",
+      "keywords": [
+        "dataset",
+        "data and ai",
+        "why ai",
+        "archive data"
+      ],
+      "actions": [
+        {
+          "label": "Data & AI",
+          "href": "#data-and-ai"
+        }
+      ],
+      "tags": [
+        "data",
+        "ai"
+      ]
+    },
+    {
+      "id": "no-one-noticed",
+      "category": "context",
+      "questions": [
+        "what is no one noticed",
+        "how is this related to no one noticed",
+        "is this part of a novel",
+        "what is the reality layer",
+        "what is the fictional connection",
+        "is the museum fictional",
+        "what is the speculative fiction project",
+        "why is there a future site"
+      ],
+      "answer": "The Museum is real, and it’s also an institution imagined inside No One Noticed, a speculative fiction project. The project’s “Reality Layer” builds pieces of that imagined future in the present. The Museum begins collecting now instead of inventing a future historical collection later.",
+      "keywords": [
+        "no one noticed",
+        "reality layer",
+        "fiction",
+        "novel",
+        "future site"
+      ],
+      "actions": [
+        {
+          "label": "Project context",
+          "href": "#context"
+        },
+        {
+          "label": "A possible future",
+          "href": "https://future.museumofordinarylife.org"
+        }
+      ],
+      "tags": [
+        "context"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "museum-everyday-life",
+      "category": "context",
+      "questions": [
+        "is this related to the museum of everyday life",
+        "what is museum of everyday life",
+        "did you copy museum of everyday life",
+        "why are the names similar",
+        "what is the related project",
+        "who is the museum of everyday life"
+      ],
+      "answer": "The Museum of Everyday Life in Glover, Vermont is a related project that explores people and their relationships to everyday objects. This Museum was established before its stewards discovered that project. The similar names weren’t intentional, and the overlap is acknowledged on the About page.",
+      "keywords": [
+        "museum of everyday life",
+        "glover vermont",
+        "names similar",
+        "related project"
+      ],
+      "actions": [
+        {
+          "label": "Related work",
+          "href": "#about"
+        }
+      ],
+      "tags": [
+        "context"
+      ]
+    },
+    {
+      "id": "email-contact",
+      "category": "contact",
+      "questions": [
+        "how do i contact the museum",
+        "what is the email",
+        "where can i email you",
+        "contact information",
+        "who do i write to",
+        "how can i ask a question by email",
+        "email address"
+      ],
+      "answer": "The site provides email links for contributions and stewardship. The complete addresses are reconstructed in the browser to reduce simple address scraping.",
+      "keywords": [
+        "contact",
+        "email",
+        "write to"
+      ],
+      "actions": [
+        {
+          "label": "Contribution contact",
+          "href": "#contribute"
+        },
+        {
+          "label": "Stewardship",
+          "href": "#stewardship"
+        }
+      ],
+      "tags": [
+        "contact"
+      ]
+    },
+    {
+      "id": "email-obfuscation",
+      "category": "privacy",
+      "questions": [
+        "why is the email hidden in source",
+        "why is the email reversed",
+        "how do your email links work",
+        "why can i not see the email address in html",
+        "email scraping",
+        "spam protection",
+        "bot protection for email"
+      ],
+      "answer": "The site stores the visible email parts in reversed form and reconstructs the address in the browser. That reduces harvesting by simple scrapers, but it isn’t a guarantee against bots that execute JavaScript or infer the address.",
+      "keywords": [
+        "email reversed",
+        "email scraping",
+        "spam protection",
+        "bot"
+      ],
+      "tags": [
+        "privacy",
+        "technical"
+      ]
+    },
+    {
+      "id": "help-topics",
+      "category": "helpdesk",
+      "questions": [
+        "help",
+        "what can i ask",
+        "what can you answer",
+        "what do you know",
+        "what questions can i ask",
+        "show me help topics",
+        "what is in your index",
+        "what can the help desk do",
+        "commands",
+        "menu",
+        "what else can i ask",
+        "give me some ideas",
+        "what should i ask you",
+        "what are some questions",
+        "what can you help with",
+        "what are you good for"
+      ],
+      "answer": "You can ask about the Museum, why ordinary life matters, what belongs in the collection, documentation ideas, contributing, publication, anonymity, delayed release, archive-only records, research, machine learning, generative reuse, attribution, withdrawal, privacy, stewardship, local museums, exhibitions, accessibility, project context, or what to document next.",
+      "keywords": [
+        "what can i ask",
+        "help topics",
+        "what do you know",
+        "commands"
+      ],
+      "tags": [
+        "helpdesk"
+      ],
+      "priority": 5
+    },
+    {
+      "id": "who-are-you",
+      "category": "helpdesk",
+      "questions": [
+        "who are you",
+        "what are you",
+        "what is this help desk",
+        "what is this interface",
+        "who am i talking to"
+      ],
+      "keywords": [
+        "who are you",
+        "what is this interface"
+      ],
+      "tags": [
+        "helpdesk"
+      ],
+      "answers": {
+        "help": "The Museum Help Desk: a small local reference index for visitor questions. It’s not a person and it’s not a language model.",
+        "notice": "A reference desk with delusions of architectural significance. Technically, it’s a small local reference index hiding behind the public Museum."
+      },
+      "priority": 5
+    },
+    {
+      "id": "where-am-i",
+      "category": "helpdesk",
+      "questions": [
+        "where am i",
+        "what room is this",
+        "where is this desk",
+        "what is this room",
+        "am i still on the museum site"
+      ],
+      "keywords": [
+        "where am i",
+        "what room"
+      ],
+      "tags": [
+        "helpdesk"
+      ],
+      "answers": {
+        "help": "You’re at the Museum Help Desk / Visitor Services. The public Museum is still immediately behind this desk.",
+        "notice": "Reference Desk / After Hours. This room isn’t shown on the public floor plan. The public Museum is still immediately behind you."
+      }
+    },
+    {
+      "id": "hidden",
+      "category": "afterhours",
+      "questions": [
+        "what is hidden here",
+        "are there secrets",
+        "what are the easter eggs",
+        "show me an easter egg",
+        "what is in the source code",
+        "what are the hidden comments",
+        "is this steganography",
+        "tell me a secret",
+        "source comments",
+        "what did you hide"
+      ],
+      "keywords": [
+        "hidden",
+        "secret",
+        "easter egg",
+        "source code",
+        "steganography"
+      ],
+      "tags": [
+        "afterhours"
+      ],
+      "random_pool": "hidden_notes"
+    },
+    {
+      "id": "vibe-code",
+      "category": "afterhours",
+      "questions": [
+        "was this vibe coded",
+        "is this vibe coded",
+        "did ai write this site",
+        "did you vibe code this",
+        "vibe coding"
+      ],
+      "answer": "The source code has requested that the following statement be entered into the record: “I swear this site wasn’t vibe-coded lol. It was aggressively supervised.”",
+      "keywords": [
+        "vibe coded",
+        "vibe coding"
+      ],
+      "tags": [
+        "afterhours"
+      ]
+    },
+    {
+      "id": "rae",
+      "category": "afterhours",
+      "questions": [
+        "who is rae",
+        "rae",
+        "did rae make this",
+        "rae was here",
+        "tell me about rae"
+      ],
+      "answer": "The source contains a note: “Rae was here. You were too, apparently.” The Help Desk declines to over-interpret archival evidence.",
+      "keywords": [
+        "rae"
+      ],
+      "tags": [
+        "afterhours"
+      ]
+    },
+    {
+      "id": "boring",
+      "category": "afterhours",
+      "questions": [
+        "is boring okay",
+        "is this too boring",
+        "boring",
+        "my thing is boring",
+        "what if it is boring",
+        "do you really want boring things"
+      ],
+      "answer": "Excellent. Boring is admissible. Boring often ages unusually well.",
+      "keywords": [
+        "boring"
+      ],
+      "actions": [
+        {
+          "label": "Contribute something boring",
+          "href": "#contribute"
+        }
+      ],
+      "tags": [
+        "afterhours",
+        "collection"
+      ]
+    },
+    {
+      "id": "greeting",
+      "category": "helpdesk",
+      "questions": [
+        "hi",
+        "hello",
+        "hey",
+        "yo",
+        "good morning",
+        "good afternoon",
+        "good evening"
+      ],
+      "keywords": [
+        "hello"
+      ],
+      "tags": [
+        "helpdesk"
+      ],
+      "answers": {
+        "help": "Hello. You’re at the Museum Help Desk. What are you trying to find out?",
+        "notice": "Hello. You found the unlisted desk. This probably counts as an exhibit now."
+      }
+    },
+    {
+      "id": "where-cafe",
+      "category": "visitor-services",
+      "priority": 20,
+      "questions": [
+        "where's the cafe",
+        "where is the cafe",
+        "where is the café",
+        "how do i get to the cafe",
+        "how can i get to the cafe",
+        "how do i get to the café",
+        "take me to the cafe",
+        "show me the cafe",
+        "where's the coffee",
+        "where can i get coffee",
+        "where is the collection lounge",
+        "how do i get to the collection lounge",
+        "where's the lounge",
+        "where can i take a break",
+        "where can i sit down",
+        "is there a cafe",
+        "do you have a cafe",
+        "do you have coffee",
+        "i need coffee",
+        "i want coffee"
+      ],
+      "keywords": [
+        "cafe",
+        "café",
+        "coffee",
+        "collection lounge",
+        "quiet room",
+        "take a break"
+      ],
+      "answer": "The Collection Lounge / Café is open. It's a quiet room with an empty collection window, projection wall, reading shelf, table notebook, and refreshments while the collection is still forming.",
+      "actions": [
+        {
+          "label": "Go to the Café",
+          "href": "./cafe/"
+        }
+      ],
+      "suggestions": [
+        "What's showing in the café?",
+        "Can I submit a view for the café?",
+        "Is there somewhere quiet to sit?"
+      ],
+      "tags": [
+        "visitor-services",
+        "cafe",
+        "wayfinding"
+      ]
+    },
+    {
+      "id": "cafe-refreshments",
+      "category": "visitor-services",
+      "priority": 18,
+      "questions": [
+        "where can i get water",
+        "is there water",
+        "where's the water",
+        "do you have coffee",
+        "is there tea",
+        "where are the snacks",
+        "do you have snacks",
+        "do you have fruit",
+        "what food is in the cafe",
+        "what can i eat",
+        "where are refreshments",
+        "is there a water station",
+        "can i get caffeine",
+        "where can i get tea"
+      ],
+      "keywords": [
+        "water",
+        "coffee",
+        "tea",
+        "fruit",
+        "snacks",
+        "refreshments",
+        "caffeine"
+      ],
+      "answer": "The Collection Lounge has a small imagined refreshment station: coffee, tea, water, and fruit. On the website it's part of the room rather than an ordering system. Please don't put cups on the collection.",
+      "actions": [
+        {
+          "label": "Go to the Café",
+          "href": "./cafe/"
+        }
+      ],
+      "suggestions": [
+        "What's showing in the café?",
+        "Where's the reading shelf?",
+        "Can I submit something for the café?"
+      ],
+      "tags": [
+        "visitor-services",
+        "cafe",
+        "refreshments"
+      ]
+    },
+    {
+      "id": "restroom",
+      "category": "visitor-services",
+      "priority": 25,
+      "questions": [
+        "where's the restroom",
+        "where is the restroom",
+        "where are the restrooms",
+        "where's the bathroom",
+        "where is the bathroom",
+        "where's the toilet",
+        "where is the toilet",
+        "do you have a restroom",
+        "is there a bathroom",
+        "which way to the restroom",
+        "how do i get to the restroom",
+        "i need the bathroom",
+        "i need a restroom",
+        "where can i wash my hands"
+      ],
+      "keywords": [
+        "restroom",
+        "bathroom",
+        "toilet",
+        "loo",
+        "washroom"
+      ],
+      "answer": "The Museum is currently online, so there isn't a physical restroom here. If the Museum gets a building someday, this answer had better become more useful.",
+      "suggestions": [
+        "Where's the café?",
+        "Is there a map?",
+        "How do I get back to the Museum?"
+      ],
+      "tags": [
+        "visitor-services",
+        "wayfinding",
+        "physical"
+      ]
+    },
+    {
+      "id": "exit-wayfinding",
+      "category": "visitor-services",
+      "priority": 30,
+      "questions": [
+        "where's the exit",
+        "where is the exit",
+        "where are the exits",
+        "how do i get out",
+        "how do i leave",
+        "how do i get back",
+        "how do i return to the museum",
+        "take me back to the museum",
+        "where's the way out",
+        "which way is out",
+        "get me out of here",
+        "how do i close this",
+        "close the help desk",
+        "back to museum"
+      ],
+      "keywords": [
+        "exit",
+        "way out",
+        "leave",
+        "close help desk",
+        "back to museum"
+      ],
+      "answers": {
+        "help": "The exit is easy: close this desk and you're back in the Museum.",
+        "notice": "Back to normal opening hours? Close the desk and the public Museum is right behind it."
+      },
+      "actions": [
+        {
+          "label": "Close Help Desk",
+          "command": "close"
+        },
+        {
+          "label": "Return to top",
+          "href": "#top"
+        }
+      ],
+      "suggestions": [
+        "Where's the café?",
+        "What can I see right now?",
+        "What can I ask you?"
+      ],
+      "tags": [
+        "visitor-services",
+        "wayfinding"
+      ]
+    },
+    {
+      "id": "security",
+      "category": "visitor-services",
+      "priority": 25,
+      "questions": [
+        "where's security",
+        "where is security",
+        "where is the security desk",
+        "where are the guards",
+        "do you have security",
+        "i need security",
+        "can i talk to security",
+        "where's a guard",
+        "how do i contact security",
+        "is there museum security"
+      ],
+      "keywords": [
+        "security",
+        "guard",
+        "security desk"
+      ],
+      "answer": "There isn't a physical security desk on the online Museum. If you mean a problem with the site or collection, use the Museum contact links. If you mean an immediate safety problem where you physically are, contact staff or emergency services there.",
+      "actions": [
+        {
+          "label": "Contact the Museum",
+          "href": "#contribute"
+        }
+      ],
+      "suggestions": [
+        "Where's lost and found?",
+        "Where's the front desk?",
+        "How do I contact the Museum?"
+      ],
+      "tags": [
+        "visitor-services",
+        "safety"
+      ]
+    },
+    {
+      "id": "lost-found",
+      "category": "visitor-services",
+      "priority": 24,
+      "questions": [
+        "where's lost and found",
+        "where is lost and found",
+        "do you have lost and found",
+        "i lost something",
+        "i found something",
+        "where do i report a lost item",
+        "where do i turn in something i found",
+        "lost property",
+        "found property",
+        "i can't find something",
+        "have you found my bag",
+        "did someone turn in my phone"
+      ],
+      "keywords": [
+        "lost and found",
+        "lost property",
+        "found property",
+        "lost item"
+      ],
+      "answer": "The online Museum doesn't have a physical lost-and-found. If you're looking for something on the website or in the collection, tell me what it is and I'll try to point you in the right direction.",
+      "suggestions": [
+        "Where's the front desk?",
+        "How do I find something in the collection?",
+        "How do I contact the Museum?"
+      ],
+      "tags": [
+        "visitor-services",
+        "wayfinding"
+      ]
+    },
+    {
+      "id": "front-desk",
+      "category": "visitor-services",
+      "priority": 28,
+      "questions": [
+        "where's the front desk",
+        "where is the front desk",
+        "where's information",
+        "where is visitor services",
+        "where's the help desk",
+        "where is reception",
+        "how do i get to the front desk",
+        "i need the information desk",
+        "is this the front desk",
+        "am i at the front desk"
+      ],
+      "keywords": [
+        "front desk",
+        "information desk",
+        "visitor services",
+        "help desk",
+        "reception"
+      ],
+      "answer": "You found it. This is the Museum Help Desk / Visitor Services.",
+      "suggestions": [
+        "Where's the café?",
+        "What can I see right now?",
+        "What can I ask you?",
+        "How do I contribute?"
+      ],
+      "tags": [
+        "visitor-services",
+        "helpdesk"
+      ]
+    },
+    {
+      "id": "gift-shop",
+      "category": "visitor-services",
+      "priority": 20,
+      "questions": [
+        "where's the gift shop",
+        "where is the gift shop",
+        "do you have a gift shop",
+        "is there a museum shop",
+        "where can i buy something",
+        "where are the souvenirs",
+        "do you sell merch",
+        "do you have merch",
+        "can i buy a poster",
+        "where's the store",
+        "is there a shop"
+      ],
+      "keywords": [
+        "gift shop",
+        "museum shop",
+        "souvenir",
+        "merch",
+        "store"
+      ],
+      "answer": "There isn't a Museum shop right now. The Museum is concentrating on building the collection first.",
+      "suggestions": [
+        "Can I contribute something instead?",
+        "Where's the café?",
+        "What can I see right now?"
+      ],
+      "tags": [
+        "visitor-services",
+        "shop"
+      ]
+    },
+    {
+      "id": "books-reading",
+      "category": "visitor-services",
+      "priority": 20,
+      "questions": [
+        "where's the reading room",
+        "where is the reading room",
+        "where are the books",
+        "where's the bookshelf",
+        "do you have a library",
+        "do you have books",
+        "where can i read",
+        "where's the reading shelf",
+        "where's insert name of book",
+        "do you have insert name of book",
+        "can i find a book here",
+        "how do i find a book",
+        "is this book in the museum",
+        "where can i find this book",
+        "what books do you have"
+      ],
+      "keywords": [
+        "reading room",
+        "books",
+        "book",
+        "library",
+        "reading shelf",
+        "bookshelf"
+      ],
+      "answer": "There's a reading shelf in the Collection Lounge, but it isn't a searchable library catalog yet. If you're looking for a specific title, the Help Desk can't confirm that it's on the shelf unless it's been added to the Museum's records.",
+      "actions": [
+        {
+          "label": "Go to the Café / Lounge",
+          "href": "./cafe/"
+        }
+      ],
+      "suggestions": [
+        "What's in the reading room?",
+        "Where's the café?",
+        "Can I suggest a book?"
+      ],
+      "tags": [
+        "visitor-services",
+        "books",
+        "cafe"
+      ]
+    },
+    {
+      "id": "manager",
+      "category": "visitor-services",
+      "priority": 24,
+      "questions": [
+        "where's your manager",
+        "where is your manager",
+        "can i speak to your manager",
+        "get me your manager",
+        "who is the manager",
+        "do you have a manager",
+        "who's in charge",
+        "who is in charge",
+        "i want to speak to whoever is in charge",
+        "who runs this place",
+        "who runs the museum"
+      ],
+      "keywords": [
+        "manager",
+        "in charge",
+        "who runs"
+      ],
+      "answer": "There isn't really a museum manager in the conventional sense. The Museum is currently independently stewarded and is being built toward distributed stewardship.",
+      "actions": [
+        {
+          "label": "About the Museum",
+          "href": "#about"
+        },
+        {
+          "label": "Stewardship",
+          "href": "#stewardship"
+        }
+      ],
+      "suggestions": [
+        "Who founded the Museum?",
+        "What is distributed stewardship?",
+        "How do I become a steward?"
+      ],
+      "tags": [
+        "visitor-services",
+        "governance"
+      ]
+    },
+    {
+      "id": "missing-person",
+      "category": "visitor-services",
+      "priority": 100,
+      "questions": [
+        "where's my kid",
+        "where is my kid",
+        "i can't find my child",
+        "my child is missing",
+        "i lost my child",
+        "where is my child",
+        "have you seen my kid",
+        "where's my friend",
+        "i can't find my friend",
+        "someone is missing",
+        "i can't find someone",
+        "where is my partner",
+        "where is my parent"
+      ],
+      "keywords": [
+        "my kid",
+        "my child",
+        "missing child",
+        "missing person",
+        "can not find my",
+        "cannot find my"
+      ],
+      "answer": "I can't locate people. If someone is actually missing or in immediate danger, contact staff or emergency services where you physically are. If you meant something on this website, tell me what you're trying to find.",
+      "suggestions": [
+        "Where's security?",
+        "Where's the front desk?",
+        "I meant something on the website."
+      ],
+      "tags": [
+        "visitor-services",
+        "safety"
+      ],
+      "direct_patterns": [
+        "my kid",
+        "my child",
+        "missing child",
+        "someone is missing",
+        "missing person",
+        "cannot find my child",
+        "can not find my child"
+      ]
+    },
+    {
+      "id": "physical-amenities",
+      "category": "visitor-services",
+      "priority": 18,
+      "questions": [
+        "where's the elevator",
+        "where is the elevator",
+        "where are the stairs",
+        "is there a lift",
+        "do you have lockers",
+        "where's coat check",
+        "where can i leave my bag",
+        "where can i park",
+        "is there parking",
+        "where's bike parking",
+        "do you have a coat check",
+        "where are the lockers"
+      ],
+      "keywords": [
+        "elevator",
+        "stairs",
+        "lift",
+        "locker",
+        "coat check",
+        "parking"
+      ],
+      "answer": "Those are physical-building questions, and the Museum doesn't have a public building yet. For now, the Museum is online. If a physical site opens later, Visitor Services will need a real answer here.",
+      "actions": [
+        {
+          "label": "About the Museum",
+          "href": "#about"
+        }
+      ],
+      "suggestions": [
+        "Is there a physical Museum?",
+        "Where's the café?",
+        "Is there a map?"
+      ],
+      "tags": [
+        "visitor-services",
+        "physical"
+      ]
+    },
+    {
+      "id": "museum-map",
+      "category": "visitor-services",
+      "priority": 18,
+      "questions": [
+        "where's the map",
+        "where is the map",
+        "do you have a map",
+        "show me the map",
+        "is there a floor plan",
+        "where's the floor plan",
+        "how do i navigate the museum",
+        "how do i find my way around",
+        "what's on this site",
+        "site map",
+        "museum map"
+      ],
+      "keywords": [
+        "map",
+        "floor plan",
+        "navigate",
+        "find my way"
+      ],
+      "answer": "There isn't a literal floor plan yet. The main Museum page is the current map: About, Exhibitions, Collection, Field Notes, Data & AI, Contribute, Local Museums, Stewardship, Help Desk, and the Collection Lounge / Café.",
+      "actions": [
+        {
+          "label": "Museum home",
+          "href": "#top"
+        },
+        {
+          "label": "Café / Lounge",
+          "href": "./cafe/"
+        }
+      ],
+      "suggestions": [
+        "What can I see right now?",
+        "Where's the café?",
+        "Where's the front desk?"
+      ],
+      "tags": [
+        "visitor-services",
+        "wayfinding"
+      ]
+    },
+    {
+      "id": "admission",
+      "category": "visitor-services",
+      "priority": 18,
+      "questions": [
+        "how much is admission",
+        "do i need a ticket",
+        "where do i buy tickets",
+        "is the museum free",
+        "what does it cost",
+        "is there an entry fee",
+        "do i have to pay",
+        "are tickets free",
+        "can i visit for free",
+        "ticket price",
+        "admission price"
+      ],
+      "keywords": [
+        "admission",
+        "ticket",
+        "tickets",
+        "entry fee",
+        "free"
+      ],
+      "answer": "The online Museum is free to visit. There are no tickets or admission desk.",
+      "suggestions": [
+        "What can I see right now?",
+        "Where's the café?",
+        "How do I contribute?"
+      ],
+      "tags": [
+        "visitor-services",
+        "admission"
+      ]
+    },
+    {
+      "id": "hours",
+      "category": "visitor-services",
+      "priority": 20,
+      "questions": [
+        "what are your hours",
+        "when are you open",
+        "what time do you open",
+        "what time do you close",
+        "are you open now",
+        "are you open today",
+        "when does the museum open",
+        "when does the museum close",
+        "museum hours",
+        "opening hours",
+        "closing hours"
+      ],
+      "keywords": [
+        "hours",
+        "open today",
+        "open now",
+        "opening time",
+        "closing time"
+      ],
+      "answer": "The online Museum doesn't keep visitor hours. The archive is open online, and the collection is currently accepting contributions.",
+      "actions": [
+        {
+          "label": "Contribute",
+          "href": "#contribute"
+        }
+      ],
+      "suggestions": [
+        "What can I see right now?",
+        "When does the opening exhibition open?",
+        "How do I contribute?"
+      ],
+      "tags": [
+        "visitor-services",
+        "hours"
+      ]
+    },
+    {
+      "id": "named-opening",
+      "category": "exhibitions",
+      "priority": 17,
+      "questions": [
+        "when does the collection open",
+        "when does this collection open",
+        "when does the exhibition open",
+        "when is the next exhibition",
+        "what opens next",
+        "when can i see the new collection",
+        "when does insert collection name open",
+        "when does insert exhibition name open"
+      ],
+      "keywords": [
+        "when does",
+        "collection open",
+        "exhibition open",
+        "opening date"
+      ],
+      "answer": "The archive itself is already open. The opening exhibition, “This Was Somebody’s Tuesday,” is still in preparation, and the Help Desk doesn't have a public opening date for it yet.",
+      "actions": [
+        {
+          "label": "Exhibitions",
+          "href": "#exhibitions"
+        },
+        {
+          "label": "Collection",
+          "href": "#collection"
+        }
+      ],
+      "suggestions": [
+        "What is This Was Somebody's Tuesday?",
+        "What can I see right now?",
+        "What's already in the collection?"
+      ],
+      "tags": [
+        "exhibitions",
+        "hours"
+      ]
+    },
+    {
+      "id": "collection-search",
+      "category": "collection",
+      "priority": 18,
+      "questions": [
+        "how do i find something in the collection",
+        "can i search the collection",
+        "where is the collection search",
+        "find an artifact",
+        "look up an accession number",
+        "where is accession",
+        "can you find an item",
+        "search the archive",
+        "browse the archive",
+        "show me the archive"
+      ],
+      "keywords": [
+        "search collection",
+        "search archive",
+        "accession",
+        "find artifact",
+        "browse archive"
+      ],
+      "answer": "A full searchable public catalog isn't live yet. The collection is still forming. For now, the Collection section explains what the Museum is collecting, and exhibitions will surface selected records as they become available.",
+      "actions": [
+        {
+          "label": "What we collect",
+          "href": "#collection"
+        },
+        {
+          "label": "Exhibitions",
+          "href": "#exhibitions"
+        }
+      ],
+      "suggestions": [
+        "What belongs in the collection?",
+        "What can I see right now?",
+        "How do I contribute?"
+      ],
+      "tags": [
+        "collection",
+        "search"
+      ]
+    },
+    {
+      "id": "cafe-submission",
+      "category": "contribute",
+      "priority": 18,
+      "questions": [
+        "can i submit a view for the cafe",
+        "can i contribute to the cafe",
+        "how do i get my photo in the cafe",
+        "can my video be in the cafe",
+        "can the cafe use my recording",
+        "can i submit a window view",
+        "can i submit ambient sound",
+        "can my contribution show in the collection lounge",
+        "how do cafe submissions work"
+      ],
+      "keywords": [
+        "cafe submission",
+        "submit view",
+        "window view",
+        "ambient sound",
+        "collection lounge"
+      ],
+      "answer": "That's the plan. A contribution could eventually be eligible for the Collection Lounge when its permissions explicitly allow that kind of rotating or ambient display. Public display permission alone shouldn't silently become café-background permission.",
+      "actions": [
+        {
+          "label": "Contribution instructions",
+          "href": "#contribute"
+        },
+        {
+          "label": "Data & AI / permissions",
+          "href": "#data-and-ai"
+        },
+        {
+          "label": "Visit the Café",
+          "href": "./cafe/"
+        }
+      ],
+      "suggestions": [
+        "What counts as café display permission?",
+        "Can I keep a contribution private?",
+        "What files can I send?"
+      ],
+      "tags": [
+        "contribute",
+        "cafe",
+        "permissions"
+      ]
+    },
+    {
+      "id": "visitor-options",
+      "category": "visitor-services",
+      "priority": 30,
+      "questions": [
+        "what can i do",
+        "what can i do here",
+        "what is there to do",
+        "what can you do here",
+        "what should i do here",
+        "where should i start",
+        "what should i see",
+        "what is there to see",
+        "what can visitors do",
+        "give me something to do",
+        "show me around",
+        "what do i do now",
+        "where do i begin"
+      ],
+      "keywords": [
+        "what can i do",
+        "what is there to do",
+        "show me around",
+        "where should i start"
+      ],
+      "answer": "You can browse the collection categories, see what's being prepared for exhibition, get a field assignment, contribute something ordinary, read about the Museum, visit the Collection Lounge / Café, or just wander around.",
+      "actions": [
+        {
+          "label": "Collection",
+          "href": "#collection"
+        },
+        {
+          "label": "Exhibitions",
+          "href": "#exhibitions"
+        },
+        {
+          "label": "Café / Lounge",
+          "href": "./cafe/"
+        },
+        {
+          "label": "Contribute",
+          "href": "#contribute"
+        }
+      ],
+      "suggestions": [
+        "What can I see right now?",
+        "Give me something to document.",
+        "Where's the café?",
+        "How do I contribute?"
+      ],
+      "tags": [
+        "visitor-services",
+        "orientation"
+      ]
+    }
+  ]
+}
