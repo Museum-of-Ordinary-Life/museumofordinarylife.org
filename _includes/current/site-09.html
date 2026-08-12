@@ -1,0 +1,104 @@
+      if (location.hash.toLowerCase() === '#about') clearHash();
+    });
+  });
+
+  metaClosers.forEach(el => {
+    el.addEventListener('click', () => {
+      closeMeta();
+      if (location.hash.toLowerCase() === '#context') clearHash();
+    });
+  });
+
+  window.addEventListener('hashchange', () => {
+    syncPanelsToHash();
+  });
+
+  document.addEventListener('keydown', e => {
+    const activeDialog = metaPanel.classList.contains('is-open') ? metaPanel : stewardshipPanel.classList.contains('is-open') ? stewardshipPanel : panel.classList.contains('is-open') ? panel : null;
+    if (activeDialog && e.key === 'Tab') {
+      trapTabKey(e, activeDialog);
+      return;
+    }
+
+    if (e.key !== 'Escape') return;
+
+    if (metaPanel.classList.contains('is-open')) {
+      closeMeta();
+      if (location.hash.toLowerCase() === '#context') clearHash();
+      return;
+    }
+
+    if (stewardshipPanel.classList.contains('is-open')) {
+      closeStewardship();
+      if (location.hash.toLowerCase() === '#stewardship') clearHash();
+      return;
+    }
+
+    if (panel.classList.contains('is-open')) {
+      closeAbout();
+      if (location.hash.toLowerCase() === '#about') clearHash();
+      return;
+    }
+
+    if (navMenu?.hasAttribute('open')) {
+      navMenu.removeAttribute('open');
+      navMenuSummary?.focus();
+      return;
+    }
+
+    if (languageMenu?.hasAttribute('open')) {
+      const summary = languageMenu.querySelector('summary');
+      languageMenu.removeAttribute('open');
+      summary?.focus();
+    }
+  });
+
+  // Direct deep links:
+  // https://museumofordinarylife.org/#about
+  // https://museumofordinarylife.org/#stewardship
+  // https://museumofordinarylife.org/#context
+  // https://museumofordinarylife.org/#help  (handled by the Help Desk script below)
+  syncPanelsToHash({ initial: true });
+})();
+</script>
+
+<!-- The café has no door. It does have coffee. -->
+<script>
+(() => {
+  const cafeWords = ['cafe', 'coffee', 'rest'];
+  const longest = Math.max(...cafeWords.map(word => word.length));
+  let cafeBuffer = '';
+
+  window.addEventListener('keydown', event => {
+    const target = event.target;
+    const typing = target && (target.matches?.('input, textarea, select') || target.isContentEditable);
+    if (typing || event.metaKey || event.ctrlKey || event.altKey) return;
+
+    const key = String(event.key || '').toLowerCase();
+    if (!/^[a-z]$/.test(key)) return;
+
+    cafeBuffer = (cafeBuffer + key).slice(-longest);
+    if (cafeWords.some(word => cafeBuffer.endsWith(word))) {
+      event.preventDefault();
+      cafeBuffer = '';
+      window.location.href = './cafe/';
+    }
+  });
+})();
+</script>
+
+<script src="./js/helpdesk.js"></script>
+
+
+<!--
+  ACCESSION NOTE / DIGITAL TRACE / 2026
+
+  You viewed the source of a website built in 2026
+  about preserving ordinary life in 2026.
+
+  This seems relevant.
+-->
+<!-- End of document. Not necessarily end of record. -->
+
+</body>
+</html>
