@@ -1,0 +1,21 @@
+{
+  "id": "MOL-2026-000184",
+  "cafeDisplay": true,
+  "surface": "window",
+  "title": "View from the kitchen window",
+  "date": "2026-09-18",
+  "location": "San Francisco, California",
+  "credit": "Anonymous contributor",
+  "description": "Late afternoon from a kitchen window.",
+  "media": {
+    "type": "video",
+    "src": "../collection/MOL-2026-000184/window.webm",
+    "poster": "../collection/MOL-2026-000184/window.jpg",
+    "alt": "A view from a kitchen window in late afternoon.",
+    "loop": true
+  },
+  "audio": {
+    "src": "../collection/MOL-2026-000184/room.ogg",
+    "label": "Original room sound"
+  }
+}
