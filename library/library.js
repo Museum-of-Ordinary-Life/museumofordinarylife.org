@@ -1,4 +1,39 @@
 (() => {
+  const roomArt = document.querySelector('[data-room-art]');
+  const imageParts = [
+    './assets/reading-room/part-01.txt',
+    './assets/reading-room/part-02.txt',
+    './assets/reading-room/part-03.txt',
+    './assets/reading-room/part-04.txt',
+    './assets/reading-room/part-05.txt',
+    './assets/reading-room/part-06.txt',
+    './assets/reading-room/part-07.txt',
+    './assets/reading-room/part-08.txt'
+  ];
+
+  async function loadRoomArt() {
+    if (!roomArt) return;
+    try {
+      const responses = await Promise.all(imageParts.map(path => fetch(path, { cache: 'force-cache' })));
+      if (responses.some(response => !response.ok)) throw new Error('Reading room image data unavailable');
+      const chunks = await Promise.all(responses.map(response => response.text()));
+      const encoded = chunks.join('').replace(/\s+/g, '');
+      const binary = atob(encoded);
+      const bytes = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+      const url = URL.createObjectURL(new Blob([bytes], { type: 'image/webp' }));
+      roomArt.addEventListener('load', () => {
+        roomArt.classList.add('is-ready');
+        URL.revokeObjectURL(url);
+      }, { once: true });
+      roomArt.src = url;
+    } catch (error) {
+      console.warn('[Museum Library] Reading room image unavailable.', error);
+    }
+  }
+
+  loadRoomArt();
+
   const panel = document.getElementById('library-panel');
   const panelTitle = document.getElementById('library-panel-title');
   const panelBody = document.getElementById('library-panel-body');
