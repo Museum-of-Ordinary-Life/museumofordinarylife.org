@@ -1,0 +1,164 @@
+(() => {
+  const DATA_URL = './data/helpdesk-core.json';
+  const ENTRY_URLS = [
+    './data/helpdesk-entries-01.json',
+    './data/helpdesk-entries-02.json',
+    './data/helpdesk-entries-03.json',
+    './data/helpdesk-entries-04.json',
+    './data/helpdesk-entries-05.json',
+  ];
+  const triggers = ['notice', 'help'];
+  const maxTriggerLength = Math.max(...triggers.map(word => word.length));
+
+  let keyBuffer = '';
+  let roomMode = 'notice';
+  let lastFocus = null;
+  let helpData = null;
+  let helpDataPromise = null;
+
+  const room = document.getElementById('archive-room');
+  const form = document.getElementById('archive-room-form');
+  const input = document.getElementById('archive-room-input');
+  const log = document.getElementById('archive-room-log');
+  const closeButton = room?.querySelector('.archive-room-close');
+  const promptButtons = room?.querySelectorAll('[data-archive-prompt]') || [];
+  const modeLabel = document.getElementById('archive-room-mode-label');
+  const statusLabel = document.getElementById('archive-room-status');
+  const stamp = document.getElementById('archive-room-stamp');
+  const title = document.getElementById('archive-room-title');
+  const introPrimary = document.getElementById('archive-room-intro-primary');
+  const introSecondary = document.getElementById('archive-room-intro-secondary');
+  const exitNote = document.getElementById('archive-room-exit-note');
+
+  if (!room || !form || !input || !log) return;
+
+  const fallbackData = {
+    modes: {
+      notice: {
+        modeLabel: 'Reference desk / after hours',
+        status: 'Uncatalogued room',
+        stamp: 'FOUND',
+        title: 'You<br><em>noticed.</em>',
+        primary: 'This room isn’t listed on the public floor plan.',
+        secondary: 'Ask about the Museum, the collection, or what you might document next.',
+        placeholder: 'Ask the Museum something…',
+        initial: 'After-hours desk open.',
+        exitNote: 'Esc or “exit” returns to the galleries.',
+        prompts: [['Help', 'help']]
+      },
+      help: {
+        modeLabel: 'Visitor services / help desk',
+        status: 'Museum assistance',
+        stamp: 'OPEN',
+        title: 'Museum<br><em>help desk.</em>',
+        primary: 'Questions about the Museum and finding your way around.',
+        secondary: 'The Help Desk file is loading.',
+        placeholder: 'How can the Museum help?',
+        initial: 'Help Desk open.',
+        exitNote: 'Esc or “exit” closes the help desk.',
+        prompts: [['Help', 'help']]
+      }
+    },
+    stopwords: [],
+    synonym_groups: [],
+    noticing_prompts: [],
+    hidden_notes: [],
+    entries: [],
+    fallbacks: {
+      no_match: 'I don’t have a reliable answer for that in the Help Desk file yet.',
+      data_error: 'The Help Desk file didn’t load. The rest of the Museum still works, but this desk has temporarily misplaced its catalog cards.'
+    }
+  };
+
+  async function loadHelpData() {
+    if (helpData) return helpData;
+    if (helpDataPromise) return helpDataPromise;
+
+    helpDataPromise = Promise.all([
+      fetch(DATA_URL, { cache: 'no-store' }).then(response => {
+        if (!response.ok) throw new Error(`Help Desk data: ${response.status}`);
+        return response.json();
+      }),
+      ...ENTRY_URLS.map(url => fetch(url, { cache: 'no-store' }).then(response => {
+        if (!response.ok) throw new Error(`Help Desk entries: ${response.status}`);
+        return response.json();
+      }))
+    ])
+      .then(([data, ...entryGroups]) => {
+        data.entries = entryGroups.flat();
+        helpData = data;
+        return data;
+      })
+      .catch(error => {
+        console.warn('Museum Help Desk data could not be loaded.', error);
+        helpData = fallbackData;
+        return helpData;
+      });
+
+    return helpDataPromise;
+  }
+
+  // Start loading the small catalog file as soon as the page is ready.
+  loadHelpData();
+
+  const pick = list => list?.length ? list[Math.floor(Math.random() * list.length)] : '';
+
+  function normalize(value) {
+    return String(value || '')
+      .toLowerCase()
+      .replace(/[’]/g, "'")
+      .replace(/\bwhat's\b/g, 'what is')
+      .replace(/\bwhere's\b/g, 'where is')
+      .replace(/\bwho's\b/g, 'who is')
+      .replace(/\bhow's\b/g, 'how is')
+      .replace(/\bdoesn't\b/g, 'does not')
+      .replace(/\bdon't\b/g, 'do not')
+      .replace(/\bcan't\b/g, 'cannot')
+      .replace(/\bi'm\b/g, 'i am')
+      .replace(/\bi'd\b/g, 'i would')
+      .replace(/\bi've\b/g, 'i have')
+      .replace(/\bmachine[\s-]+learning\b/g, 'machinelearning')
+      .replace(/\bartificial intelligence\b/g, 'ai')
+      .replace(/[^a-z0-9\s]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function buildSynonymMap(data) {
+    const map = new Map();
+    for (const group of data.synonym_groups || []) {
+      const canonical = normalize(group[0]).replace(/\s+/g, '');
+      for (const item of group) map.set(normalize(item).replace(/\s+/g, ''), canonical);
+    }
+    return map;
+  }
+
+  function tokenSet(value, data) {
+    const stop = new Set(data.stopwords || []);
+    const synonyms = buildSynonymMap(data);
+    const raw = normalize(value).split(' ').filter(Boolean);
+    const mapped = raw.map(token => synonyms.get(token) || token);
+    const useful = mapped.filter(token => !stop.has(token));
+    return new Set(useful.length ? useful : mapped);
+  }
+
+  function diceCoefficient(a, b) {
+    if (a === b) return 1;
+    if (a.length < 2 || b.length < 2) return 0;
+
+    const pairs = str => {
+      const out = new Map();
+      for (let i = 0; i < str.length - 1; i++) {
+        const pair = str.slice(i, i + 2);
+        out.set(pair, (out.get(pair) || 0) + 1);
+      }
+      return out;
+    };
+
+    const A = pairs(a);
+    const B = pairs(b);
+    let overlap = 0;
+    for (const [pair, count] of A) overlap += Math.min(count, B.get(pair) || 0);
+
+    return (2 * overlap) / Math.max(1, (a.length - 1) + (b.length - 1));
+  }
