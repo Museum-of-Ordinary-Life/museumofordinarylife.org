@@ -149,16 +149,3 @@
     const pairs = str => {
       const out = new Map();
       for (let i = 0; i < str.length - 1; i++) {
-        const pair = str.slice(i, i + 2);
-        out.set(pair, (out.get(pair) || 0) + 1);
-      }
-      return out;
-    };
-
-    const A = pairs(a);
-    const B = pairs(b);
-    let overlap = 0;
-    for (const [pair, count] of A) overlap += Math.min(count, B.get(pair) || 0);
-
-    return (2 * overlap) / Math.max(1, (a.length - 1) + (b.length - 1));
-  }
