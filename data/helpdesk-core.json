@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "museum": "Museum of Ordinary Life",
-  "updated": "2026-08-11",
+  "updated": "2026-08-12",
   "privacy_note": "This static Help Desk matches questions in the visitor's browser. The current version doesn't send Help Desk questions to a server or model.",
   "modes": {
     "notice": {
@@ -64,7 +64,7 @@
     "availability": ["do you have","is there","are there","can i find","can i get","does the museum have"]
   },
   "places": [
-    {"id":"cafe","aliases":["cafe","café","coffee shop","coffee","collection lounge","lounge","quiet room","rest area","break room"],"entry":"where-cafe"},
+    {"id":"library","aliases":["library","reading room","reading rooms","books","bookshelf","bookshelves","browse shelves","quiet room","study room","collection lounge","lounge","cafe","café","coffee shop","coffee"],"entry":"where-library"},
     {"id":"restroom","aliases":["restroom","restrooms","bathroom","bathrooms","toilet","toilets","loo","washroom"],"entry":"restroom"},
     {"id":"exit","aliases":["exit","way out","get out","leave","back to museum","return to museum"],"entry":"exit-wayfinding"},
     {"id":"security","aliases":["security","security desk","guard","guards"],"entry":"security"},
@@ -79,12 +79,12 @@
     {"id":"elevator","aliases":["elevator","elevators","lift","lifts","stairs","staircase"],"entry":"physical-amenities"},
     {"id":"coat-check","aliases":["coat check","coatcheck","locker","lockers","bag check"],"entry":"physical-amenities"},
     {"id":"parking","aliases":["parking","parking lot","garage","bike parking","bicycle parking","park","bike rack","bike racks"],"entry":"physical-amenities"},
-    {"id":"water","aliases":["water fountain","water station","drinking water","water","coffee station","tea","fruit","snacks","refreshments"],"entry":"cafe-refreshments"},
+    {"id":"refreshments","aliases":["water fountain","drinking water","refreshments","coffee","tea","fruit","snacks"],"entry":"refreshments"},
     {"id":"map","aliases":["map","floor plan","museum map","site map"],"entry":"museum-map"},
     {"id":"museum-home","aliases":["museum","museum home","home page","main museum","main page","website"],"entry":"where-museum"}
   ],
   "category_suggestions": {
-    "visitor-services": ["Where's the café?","What can I see right now?","How do I get back to the Museum?","Is there a map?"],
+    "visitor-services": ["Where's the Library?","What can I see right now?","How do I get back to the Museum?","Is there a map?"],
     "museum": ["What is this museum?","Why ordinary life?","What can I see right now?","Who's behind the Museum?"],
     "collection": ["What belongs in the collection?","What should I document?","How do I contribute?","Can I keep something private?"],
     "documentation": ["Give me something to document.","What counts as context?","Do I need the original file?","How specific should the location be?"],
@@ -94,11 +94,11 @@
     "stewardship": ["What do stewards do?","How do I become a steward?","Who runs the Museum?","Can I start a local museum?"],
     "local": ["Can I start a local museum?","Does it need a building?","Can I contribute from outside the U.S.?","How do local museum addresses work?"],
     "access": ["What languages are supported?","How accessible is the site?","Where's the Help Desk?","Can I help translate?"],
-    "exhibitions": ["What can I see right now?","When does the opening exhibition open?","What's in the collection?","Where's the café?"],
+    "exhibitions": ["What can I see right now?","When does the opening exhibition open?","What's in the collection?","Where's the Library?"],
     "data": ["Can AI train on contributions?","What is generative reuse?","How does research permission work?","What happens to provenance?"],
     "context": ["What is No One Noticed?","Why is the Museum real?","What is the Reality Layer?","What's hidden here?"],
     "contact": ["How do I contribute?","How do I become a steward?","How is email protected from scraping?","Where's the Help Desk?"],
-    "helpdesk": ["Where's the café?","What can I ask you?","What can I see right now?","How do I contribute?"],
+    "helpdesk": ["Where's the Library?","What can I ask you?","What can I see right now?","How do I contribute?"],
     "afterhours": ["What's hidden here?","Are you AI?","Give me something to document.","Who made this site?"]
   }
 }
