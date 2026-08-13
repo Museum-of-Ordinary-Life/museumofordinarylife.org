@@ -3,112 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="The Collection Lounge and Café at the Museum of Ordinary Life: a quiet room for resting, noticing, and viewing ordinary media from the collection.">
-  <meta name="robots" content="index,follow">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#e9e4d8">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-  <link rel="stylesheet" href="./cafe.css">
-  <title>Collection Lounge / Café — Museum of Ordinary Life</title>
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="refresh" content="0; url=../library/">
+  <link rel="canonical" href="https://museumofordinarylife.org/library/">
+  <title>Library / Reading Room — Museum of Ordinary Life</title>
+  <script>
+    location.replace('../library/' + location.search + location.hash);
+  </script>
 </head>
 <body>
-  <a class="skip-link" href="#lounge-main">Skip to lounge</a>
-
-  <header class="museum-bar">
-    <a class="museum-name" href="../">
-      <span class="museum-the">The</span>
-      <span>Museum <em>of</em> Ordinary Life</span>
-    </a>
-    <div class="museum-bar-meta">
-      <span>Collection Lounge / Café</span>
-      <span class="open-mark">Open</span>
-      <a href="../">Return to galleries ↗</a>
-    </div>
-  </header>
-
-  <main id="lounge-main">
-    <section class="lounge-intro" aria-labelledby="lounge-heading">
-      <div>
-        <span class="kicker">Rest / Notice / Browse</span>
-        <h1 id="lounge-heading">It may be a website,<br><em>but you can still sit down.</em></h1>
-      </div>
-      <div class="lounge-intro-copy">
-        <p>This is a quiet room inside the Museum. Stay for a minute or an hour. Nothing here needs your attention.</p>
-        <p>As the collection grows, photographs, moving images, and sounds contributed to the Museum can pass through this room with the contributor’s permission.</p>
-      </div>
-    </section>
-
-    <section class="room" aria-label="Collection Lounge">
-      <div class="clerestory" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-
-      <div class="room-wall">
-        <section class="window-zone" aria-labelledby="window-label">
-          <div class="surface-label" id="window-label"><span>Window 01</span><strong id="window-state-label">Awaiting a view from the collection</strong></div>
-          <div class="museum-window" id="museum-window" aria-live="polite">
-            <div class="window-media" id="window-media"></div>
-            <div class="window-empty" id="window-empty">
-              <span class="empty-code">MOL / WINDOW / 01</span>
-              <p>The first view shown here will come from someone who thought to record something they normally wouldn’t.</p>
-              <a href="../#contribute">Contribute something ordinary ↗</a>
-            </div>
-            <div class="window-mullions" aria-hidden="true"><span></span><span></span></div>
-          </div>
-          <div class="catalog-label" id="window-catalog"><span class="catalog-status">No object assigned</span><h2>Window 01</h2><p>No collection media has been assigned to this display yet.</p></div>
-        </section>
-
-        <aside class="side-wall">
-          <section class="projection-zone" aria-labelledby="projection-title">
-            <div class="surface-label compact"><span>Projection 01</span><strong id="projection-title">Between screenings</strong></div>
-            <div class="projector-screen" id="projector-screen"><div class="projector-media" id="projector-media"></div><div class="projection-empty" id="projection-empty"><span>Nothing is being projected right now.</span><small>Moving images from the collection can appear here later.</small></div></div>
-          </section>
-
-          <section class="bookshelf" aria-labelledby="shelf-title">
-            <div class="surface-label compact"><span>Reading shelf</span><strong id="shelf-title">Take something down</strong></div>
-            <div class="shelves" aria-label="Museum reading shelf">
-              <a class="book book-a" href="../#field-notes"><span>FIELD<br>NOTES</span></a>
-              <a class="book book-b" href="../#about"><span>ABOUT<br>THE<br>MUSEUM</span></a>
-              <a class="book book-c" href="../#data-and-ai"><span>DATA<br>&amp; AI</span></a>
-              <span class="book book-empty" aria-hidden="true"></span><span class="book book-empty short" aria-hidden="true"></span>
-            </div>
-          </section>
-        </aside>
-      </div>
-
-      <div class="room-floor" aria-hidden="true">
-        <div class="rug"></div>
-        <div class="couch"><span class="cushion one"></span><span class="cushion two"></span><span class="couch-base"></span><span class="leg left"></span><span class="leg right"></span></div>
-        <div class="low-table"><span class="table-top"></span><span class="table-leg left"></span><span class="table-leg right"></span><span class="fruit-bowl">● ● ●</span></div>
-        <div class="cafe-table"><span class="round-top"></span><span class="stem"></span><span class="base"></span></div>
-        <div class="chair chair-one"><span></span></div><div class="chair chair-two"><span></span></div>
-      </div>
-
-      <section class="refreshment-station" aria-labelledby="refreshments-title">
-        <div class="station-sign"><span class="kicker">Self service</span><h2 id="refreshments-title">Coffee / tea / water / fruit</h2></div>
-        <div class="station-objects" aria-hidden="true"><span class="carafe"></span><span class="cup"></span><span class="cup small"></span><span class="water"></span><span class="fruit">●</span><span class="fruit second">●</span><span class="fruit third">●</span></div>
-        <p>Please don’t put cups on the collection.</p>
-      </section>
-    </section>
-
-    <section class="lounge-controls" aria-label="Lounge controls">
-      <div class="program-card"><span class="kicker">Current program</span><h2 id="program-title">Opening room</h2><p id="program-description">The room is waiting for its first eligible collection media.</p><div class="program-actions"><button type="button" id="previous-scene" disabled>← Previous</button><button type="button" id="next-scene" disabled>Next →</button><button type="button" id="shuffle-scene" disabled>Shuffle</button></div></div>
-      <div class="sound-card"><span class="kicker">Room sound</span><h2 id="sound-title">Quiet</h2><p id="sound-description">No collection sound is assigned to the room.</p><button type="button" id="sound-toggle" disabled>Sound unavailable</button></div>
-      <div class="quiet-card"><span class="kicker">Need less interface?</span><h2>Sit quietly.</h2><p>Hide most labels and controls for a while. The exit stays visible.</p><button type="button" id="quiet-toggle" aria-pressed="false">Quiet mode</button></div>
-    </section>
-
-    <section class="table-notebook" aria-labelledby="notebook-title">
-      <details><summary><span class="kicker">Table notebook</span><strong id="notebook-title">What are you noticing right now?</strong><span>Open notebook +</span></summary><div class="notebook-paper"><label for="notebook-entry">A note for yourself</label><textarea id="notebook-entry" rows="7" placeholder="A sound. The light in the room. Something on your desk. Nothing important."></textarea><div class="notebook-foot"><span>This note stays in this tab. The Museum doesn’t receive or save it.</span><button type="button" id="clear-note">Clear page</button></div></div></details>
-    </section>
-
-    <section class="lounge-footer">
-      <p><strong>Collection Lounge / Café</strong><br>Digital room, established 2026.</p>
-      <nav aria-label="Lounge navigation"><a href="../#help">Help Desk</a><a href="../#collection">Collection</a><a href="../#contribute">Contribute</a><a href="../">Return to galleries</a></nav>
-      <p class="lounge-endnote">Nothing to do here.</p>
-    </section>
-  </main>
-
-  <button class="quiet-exit" id="quiet-exit" type="button" hidden>Leave quiet mode</button>
-  <audio id="room-audio" preload="none"></audio>
-  <script src="./cafe.js"></script>
+  <p>The Collection Lounge / Café has become the <a href="../library/">Library / Reading Room</a>.</p>
 </body>
 </html>
