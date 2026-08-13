@@ -1,31 +1,29 @@
-# Museum of Ordinary Life — Collection Lounge / Café v0.1
+# Museum of Ordinary Life — Collection Lounge / Café
 
-## Location
-The lounge lives at `/cafe/`.
+## Status
 
-- `/cafe/index.html` — Collection Lounge / Café
-- `/cafe/cafe.css` — room design
-- `/cafe/cafe.js` — collection-program renderer and lounge controls
-- `/cafe/data/scenes.json` — live café program (currently empty)
-- `/cafe/data/scene.example.json` — example record only; it is not loaded by the site
+**Retired prototype.** The Collection Lounge / Café was replaced by the Museum Library / Reading Room on 2026-08-12.
 
-## What v0.1 does
-- Public Café links from the Museum navigation, start-here area, and footer.
-- Typing `cafe`, `coffee`, or `rest` on the main Museum page opens `/cafe/`.
-- Renders a quiet architectural lounge using HTML/CSS; no stock or generated collection media.
-- Window 01 and Projection 01 are intentionally empty until eligible collection media is added.
-- Reads `/cafe/data/scenes.json` and supports image/video display plus opt-in room audio.
-- Only records with `cafeDisplay: true` are eligible.
-- Includes a local-only table notebook. Its text is not saved or submitted.
-- Includes quiet mode and honors `prefers-reduced-motion`.
+The public `/cafe/` route is kept only for compatibility and redirects visitors to `/library/`.
 
-## Adding a collection view later
-Add an object based on `/cafe/data/scene.example.json` to the `scenes` array in `scenes.json`, update the accession metadata and media paths, and confirm the contribution has explicit permission for Café/ambient display.
+Active documentation now lives in [`../library/README.md`](../library/README.md).
 
-Recommended media placement:
+## What remains in this directory
 
-`/collection/<ACCESSION-ID>/...`
+- `index.html` — compatibility redirect to `/library/`
+- `cafe.css` — retained source from the former Café prototype; not used by the active Library
+- `cafe.js` — retained source from the former Café prototype; not used by the active Library
+- `data/scenes.json` — retired Café display-program data
+- `data/scene.example.json` — retired Café scene example
 
-The renderer understands `surface: "window"`, `surface: "projector"`, and `surface: "room-sound"`.
+These files are preserved as development history for now. They should not be treated as active Museum architecture or as instructions for adding current Library material.
 
-Audio never autoplays. Visitors must turn it on.
+## Historical behavior
+
+The Café prototype included an architectural lounge, Window 01, Projection 01, a reading shelf, quiet mode, an ephemeral table notebook, and an optional collection-display program. Its scene format supported `window`, `projector`, and `room-sound` surfaces with explicit Café/ambient-display permission.
+
+That display system is no longer active. Current Library behavior and data structures are documented in the Library README.
+
+## Compatibility
+
+Old Café links, bookmarks, typed shortcuts, and Help Desk phrasings may still exist intentionally as compatibility aliases. They should resolve to or describe the Library rather than revive the retired Café interface.
