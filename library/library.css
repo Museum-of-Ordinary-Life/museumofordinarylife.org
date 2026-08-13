@@ -59,13 +59,25 @@ a { color: inherit; }
   gap: .8rem;
   min-width: 0;
 }
-.library-brand strong {
-  font-family: Georgia, "Times New Roman", serif;
+.library-wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .12em;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1rem, 2vw, 1.18rem);
-  font-weight: 500;
+  font-weight: 800;
+  line-height: .9;
+  letter-spacing: -.055em;
   white-space: nowrap;
 }
-.library-brand span {
+.library-wordmark em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.08em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -.045em;
+}
+.library-brand > span {
   color: var(--muted);
   font-size: .72rem;
   letter-spacing: .12em;
@@ -277,7 +289,7 @@ body.quiet .library-bar:hover,
 body.quiet .library-bar:focus-within { opacity: 1; }
 
 @media (max-width: 820px) {
-  .library-brand span { display: none; }
+  .library-brand > span { display: none; }
   .reading-room {
     min-height: calc(100svh - 56px);
     display: grid;
