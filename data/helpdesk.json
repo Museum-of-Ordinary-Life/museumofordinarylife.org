@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "museum": "Museum of Ordinary Life",
-  "updated": "2026-08-11",
+  "updated": "2026-08-12",
   "privacy_note": "This static Help Desk matches questions in the visitor's browser. The current version doesn't send Help Desk questions to a server or model.",
   "modes": {
     "notice": {
@@ -289,19 +289,25 @@
   },
   "places": [
     {
-      "id": "cafe",
+      "id": "library",
       "aliases": [
+        "library",
+        "reading room",
+        "reading rooms",
+        "books",
+        "bookshelf",
+        "bookshelves",
+        "browse shelves",
+        "quiet room",
+        "study room",
+        "collection lounge",
+        "lounge",
         "cafe",
         "café",
         "coffee shop",
-        "coffee",
-        "collection lounge",
-        "lounge",
-        "quiet room",
-        "rest area",
-        "break room"
+        "coffee"
       ],
-      "entry": "where-cafe"
+      "entry": "where-library"
     },
     {
       "id": "restroom",
@@ -467,19 +473,17 @@
       "entry": "physical-amenities"
     },
     {
-      "id": "water",
+      "id": "refreshments",
       "aliases": [
         "water fountain",
-        "water station",
         "drinking water",
-        "water",
-        "coffee station",
+        "refreshments",
+        "coffee",
         "tea",
         "fruit",
-        "snacks",
-        "refreshments"
+        "snacks"
       ],
-      "entry": "cafe-refreshments"
+      "entry": "refreshments"
     },
     {
       "id": "map",
@@ -506,7 +510,7 @@
   ],
   "category_suggestions": {
     "visitor-services": [
-      "Where's the café?",
+      "Where's the Library?",
       "What can I see right now?",
       "How do I get back to the Museum?",
       "Is there a map?"
@@ -569,7 +573,7 @@
       "What can I see right now?",
       "When does the opening exhibition open?",
       "What's in the collection?",
-      "Where's the café?"
+      "Where's the Library?"
     ],
     "data": [
       "Can AI train on contributions?",
@@ -590,7 +594,7 @@
       "Where's the Help Desk?"
     ],
     "helpdesk": [
-      "Where's the café?",
+      "Where's the Library?",
       "What can I ask you?",
       "What can I see right now?",
       "How do I contribute?"
@@ -2044,7 +2048,7 @@
         "what can you help with",
         "what are you good for"
       ],
-      "answer": "You can ask about the Museum, why ordinary life matters, what belongs in the collection, documentation ideas, contributing, publication, anonymity, delayed release, archive-only records, research, machine learning, generative reuse, attribution, withdrawal, privacy, stewardship, local museums, exhibitions, accessibility, project context, or what to document next.",
+      "answer": "You can ask about the Museum, why ordinary life matters, what belongs in the collection, documentation ideas, contributing, publication, anonymity, delayed release, archive-only records, research, machine learning, generative reuse, attribution, withdrawal, privacy, stewardship, local museums, exhibitions, accessibility, project context, the Library, or what to document next.",
       "keywords": [
         "what can i ask",
         "help topics",
@@ -2215,59 +2219,61 @@
       }
     },
     {
-      "id": "where-cafe",
+      "id": "where-library",
       "category": "visitor-services",
       "priority": 20,
       "questions": [
+        "where's the library",
+        "where is the library",
+        "how do i get to the library",
+        "how can i get to the library",
+        "take me to the library",
+        "show me the library",
+        "where's the reading room",
+        "where is the reading room",
+        "how do i get to the reading room",
+        "where can i read",
+        "where can i sit down",
+        "where can i take a break",
+        "where is the quiet room",
+        "where is the collection lounge",
         "where's the cafe",
         "where is the cafe",
         "where is the café",
         "how do i get to the cafe",
-        "how can i get to the cafe",
-        "how do i get to the café",
-        "take me to the cafe",
-        "show me the cafe",
-        "where's the coffee",
-        "where can i get coffee",
-        "where is the collection lounge",
-        "how do i get to the collection lounge",
-        "where's the lounge",
-        "where can i take a break",
-        "where can i sit down",
-        "is there a cafe",
-        "do you have a cafe",
-        "do you have coffee",
-        "i need coffee",
-        "i want coffee"
+        "where's the lounge"
       ],
       "keywords": [
-        "cafe",
-        "café",
-        "coffee",
-        "collection lounge",
+        "library",
+        "reading room",
+        "books",
+        "bookshelf",
         "quiet room",
-        "take a break"
+        "collection lounge",
+        "cafe",
+        "café"
       ],
-      "answer": "The Collection Lounge / Café is open. It's a quiet room with an empty collection window, projection wall, reading shelf, table notebook, and refreshments while the collection is still forming.",
+      "answer": "The Library / Reading Room is open. It’s a quiet digital room for browsing shelves, seeing what’s on the table, writing in an ephemeral notebook, or simply sitting for a while. The former Collection Lounge / Café has become the Library.",
       "actions": [
         {
-          "label": "Go to the Café",
-          "href": "./cafe/"
+          "label": "Go to the Library",
+          "href": "./library/"
         }
       ],
       "suggestions": [
-        "What's showing in the café?",
-        "Can I submit a view for the café?",
-        "Is there somewhere quiet to sit?"
+        "What's in the Library?",
+        "What can I read here?",
+        "Is there somewhere quiet to sit?",
+        "What's on the table?"
       ],
       "tags": [
         "visitor-services",
-        "cafe",
+        "library",
         "wayfinding"
       ]
     },
     {
-      "id": "cafe-refreshments",
+      "id": "refreshments",
       "category": "visitor-services",
       "priority": 18,
       "questions": [
@@ -2279,12 +2285,10 @@
         "where are the snacks",
         "do you have snacks",
         "do you have fruit",
-        "what food is in the cafe",
-        "what can i eat",
         "where are refreshments",
-        "is there a water station",
         "can i get caffeine",
-        "where can i get tea"
+        "does the library have coffee",
+        "can i eat in the library"
       ],
       "keywords": [
         "water",
@@ -2295,21 +2299,21 @@
         "refreshments",
         "caffeine"
       ],
-      "answer": "The Collection Lounge has a small imagined refreshment station: coffee, tea, water, and fruit. On the website it's part of the room rather than an ordering system. Please don't put cups on the collection.",
+      "answer": "The Museum is currently online, so there isn't a real refreshment counter. The old Collection Lounge / Café included an imagined coffee, tea, water, and fruit station; the new Library is focused on reading, browsing, noticing, and sitting quietly.",
       "actions": [
         {
-          "label": "Go to the Café",
-          "href": "./cafe/"
+          "label": "Go to the Library",
+          "href": "./library/"
         }
       ],
       "suggestions": [
-        "What's showing in the café?",
-        "Where's the reading shelf?",
-        "Can I submit something for the café?"
+        "Where's the Library?",
+        "What can I read here?",
+        "What's on the table?"
       ],
       "tags": [
         "visitor-services",
-        "cafe",
+        "library",
         "refreshments"
       ]
     },
@@ -2342,7 +2346,7 @@
       ],
       "answer": "The Museum is currently online, so there isn't a physical restroom here. If the Museum gets a building someday, this answer had better become more useful.",
       "suggestions": [
-        "Where's the café?",
+        "Where's the Library?",
         "Is there a map?",
         "How do I get back to the Museum?"
       ],
@@ -2394,7 +2398,7 @@
         }
       ],
       "suggestions": [
-        "Where's the café?",
+        "Where's the Library?",
         "What can I see right now?",
         "What can I ask you?"
       ],
@@ -2501,7 +2505,7 @@
       ],
       "answer": "You found it. This is the Museum Help Desk / Visitor Services.",
       "suggestions": [
-        "Where's the café?",
+        "Where's the Library?",
         "What can I see right now?",
         "What can I ask you?",
         "How do I contribute?"
@@ -2538,7 +2542,7 @@
       "answer": "There isn't a Museum shop right now. The Museum is concentrating on building the collection first.",
       "suggestions": [
         "Can I contribute something instead?",
-        "Where's the café?",
+        "Where's the Library?",
         "What can I see right now?"
       ],
       "tags": [
@@ -2575,22 +2579,22 @@
         "reading shelf",
         "bookshelf"
       ],
-      "answer": "There's a reading shelf in the Collection Lounge, but it isn't a searchable library catalog yet. If you're looking for a specific title, the Help Desk can't confirm that it's on the shelf unless it's been added to the Museum's records.",
+      "answer": "The Museum now has a dedicated Library / Reading Room. Its shelves are still forming, and there isn't a full searchable book catalog yet. If you're looking for a specific title, the Help Desk can only confirm it once that title has been added to the Library's records.",
       "actions": [
         {
-          "label": "Go to the Café / Lounge",
-          "href": "./cafe/"
+          "label": "Go to the Library",
+          "href": "./library/"
         }
       ],
       "suggestions": [
-        "What's in the reading room?",
-        "Where's the café?",
+        "What's in the Library?",
+        "Where's the Library?",
         "Can I suggest a book?"
       ],
       "tags": [
         "visitor-services",
         "books",
-        "cafe"
+        "library"
       ]
     },
     {
@@ -2718,7 +2722,7 @@
       ],
       "suggestions": [
         "Is there a physical Museum?",
-        "Where's the café?",
+        "Where's the Library?",
         "Is there a map?"
       ],
       "tags": [
@@ -2749,20 +2753,20 @@
         "navigate",
         "find my way"
       ],
-      "answer": "There isn't a literal floor plan yet. The main Museum page is the current map: About, Exhibitions, Collection, Field Notes, Data & AI, Contribute, Local Museums, Stewardship, Help Desk, and the Collection Lounge / Café.",
+      "answer": "There isn't a literal floor plan yet. The main Museum page is the current map: About, Exhibitions, Collection, Field Notes, Data & AI, Contribute, Local Museums, Stewardship, Help Desk, and the Library / Reading Room.",
       "actions": [
         {
           "label": "Museum home",
           "href": "#top"
         },
         {
-          "label": "Café / Lounge",
-          "href": "./cafe/"
+          "label": "Library / Reading Room",
+          "href": "./library/"
         }
       ],
       "suggestions": [
         "What can I see right now?",
-        "Where's the café?",
+        "Where's the Library?",
         "Where's the front desk?"
       ],
       "tags": [
@@ -2797,7 +2801,7 @@
       "answer": "The online Museum is free to visit. There are no tickets or admission desk.",
       "suggestions": [
         "What can I see right now?",
-        "Where's the café?",
+        "Where's the Library?",
         "How do I contribute?"
       ],
       "tags": [
@@ -2932,28 +2936,31 @@
       ]
     },
     {
-      "id": "cafe-submission",
+      "id": "library-submission",
       "category": "contribute",
       "priority": 18,
       "questions": [
-        "can i submit a view for the cafe",
-        "can i contribute to the cafe",
-        "how do i get my photo in the cafe",
-        "can my video be in the cafe",
-        "can the cafe use my recording",
+        "can i submit something for the library",
+        "can i contribute to the library",
+        "can my writing be in the library",
+        "can my photo appear in the library",
+        "can my contribution be on the table",
         "can i submit a window view",
-        "can i submit ambient sound",
-        "can my contribution show in the collection lounge",
-        "how do cafe submissions work"
+        "can the library show collection material",
+        "how do library submissions work",
+        "can i submit a view for the cafe",
+        "can i contribute to the cafe"
       ],
       "keywords": [
-        "cafe submission",
-        "submit view",
+        "library submission",
+        "library display",
+        "on the table",
         "window view",
-        "ambient sound",
-        "collection lounge"
+        "reading room",
+        "collection lounge",
+        "cafe submission"
       ],
-      "answer": "That's the plan. A contribution could eventually be eligible for the Collection Lounge when its permissions explicitly allow that kind of rotating or ambient display. Public display permission alone shouldn't silently become café-background permission.",
+      "answer": "Potentially. The Library may eventually surface collection material, reading, field notes, or ordinary views, but only when the contribution’s permissions explicitly allow that display context. Public display permission shouldn’t silently become Library-background permission.",
       "actions": [
         {
           "label": "Contribution instructions",
@@ -2964,18 +2971,18 @@
           "href": "#data-and-ai"
         },
         {
-          "label": "Visit the Café",
-          "href": "./cafe/"
+          "label": "Visit the Library",
+          "href": "./library/"
         }
       ],
       "suggestions": [
-        "What counts as café display permission?",
+        "What would Library display permission mean?",
         "Can I keep a contribution private?",
         "What files can I send?"
       ],
       "tags": [
         "contribute",
-        "cafe",
+        "library",
         "permissions"
       ]
     },
@@ -3004,7 +3011,7 @@
         "show me around",
         "where should i start"
       ],
-      "answer": "You can browse the collection categories, see what's being prepared for exhibition, get a field assignment, contribute something ordinary, read about the Museum, visit the Collection Lounge / Café, or just wander around.",
+      "answer": "You can browse the collection categories, see what's being prepared for exhibition, get a field assignment, contribute something ordinary, read about the Museum, visit the Library / Reading Room, or just wander around.",
       "actions": [
         {
           "label": "Collection",
@@ -3015,8 +3022,8 @@
           "href": "#exhibitions"
         },
         {
-          "label": "Café / Lounge",
-          "href": "./cafe/"
+          "label": "Library / Reading Room",
+          "href": "./library/"
         },
         {
           "label": "Contribute",
@@ -3026,7 +3033,7 @@
       "suggestions": [
         "What can I see right now?",
         "Give me something to document.",
-        "Where's the café?",
+        "Where's the Library?",
         "How do I contribute?"
       ],
       "tags": [

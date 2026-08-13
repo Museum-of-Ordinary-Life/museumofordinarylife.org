@@ -2462,7 +2462,7 @@ body.archive-room-open > :not(#archive-room):not(script):not(style){
           <a href="#field-notes">Field Notes</a>
           <a href="#data-and-ai">Data &amp; AI</a>
           <a href="#help" data-helpdesk-open>Help Desk</a>
-          <a href="./cafe/">Collection Lounge / Café</a>
+          <a href="./library/">Library / Reading Room</a>
           <a class="nav-compact-only" href="#contribute">Contribute</a>
         </div>
       </details>
@@ -2563,7 +2563,7 @@ body.archive-room-open > :not(#archive-room):not(script):not(style){
     <p class="quick-start-help">
       Not sure where to begin? <a class="text-link" href="#help" data-helpdesk-open>Ask the Museum Help Desk →</a>
       <span aria-hidden="true"> · </span>
-      Need a minute? <a class="text-link" href="./cafe/">Sit in the Collection Lounge →</a>
+      Need a minute? <a class="text-link" href="./library/">Sit in the Library →</a>
     </p>
   </div>
 </section>
@@ -3653,7 +3653,7 @@ body.archive-room-open > :not(#archive-room):not(script):not(style){
         <a href="#collection">What we collect</a><br>
         <a href="#stewardship" data-stewardship-open>Stewardship</a><br>
         <a href="#contribute">Contribute</a><br>
-        <a href="./cafe/">Collection Lounge / Café</a>
+        <a href="./library/">Library / Reading Room</a>
       </div>
 
       <div class="footer-col">
@@ -4092,12 +4092,12 @@ body.archive-room-open > :not(#archive-room):not(script):not(style){
 })();
 </script>
 
-<!-- The café has no door. It does have coffee. -->
+<!-- The Library keeps quiet hours. The keyboard does not. -->
 <script>
 (() => {
-  const cafeWords = ['cafe', 'coffee', 'rest'];
-  const longest = Math.max(...cafeWords.map(word => word.length));
-  let cafeBuffer = '';
+  const libraryWords = ['library', 'reading', 'cafe', 'coffee', 'rest'];
+  const longest = Math.max(...libraryWords.map(word => word.length));
+  let libraryBuffer = '';
 
   window.addEventListener('keydown', event => {
     const target = event.target;
@@ -4107,11 +4107,11 @@ body.archive-room-open > :not(#archive-room):not(script):not(style){
     const key = String(event.key || '').toLowerCase();
     if (!/^[a-z]$/.test(key)) return;
 
-    cafeBuffer = (cafeBuffer + key).slice(-longest);
-    if (cafeWords.some(word => cafeBuffer.endsWith(word))) {
+    libraryBuffer = (libraryBuffer + key).slice(-longest);
+    if (cafeWords.some(word => libraryBuffer.endsWith(word))) {
       event.preventDefault();
-      cafeBuffer = '';
-      window.location.href = './cafe/';
+      libraryBuffer = '';
+      window.location.href = './library/';
     }
   });
 })();
