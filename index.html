@@ -4108,7 +4108,7 @@ body.archive-room-open > :not(#archive-room):not(script):not(style){
     if (!/^[a-z]$/.test(key)) return;
 
     libraryBuffer = (libraryBuffer + key).slice(-longest);
-    if (cafeWords.some(word => libraryBuffer.endsWith(word))) {
+    if (libraryWords.some(word => libraryBuffer.endsWith(word))) {
       event.preventDefault();
       libraryBuffer = '';
       window.location.href = './library/';
